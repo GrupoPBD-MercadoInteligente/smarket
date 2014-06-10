@@ -1,0 +1,35 @@
+<h1>Listing producto_ofertados</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Producto</th>
+      <th>Producto of</th>
+      <th>Usuario</th>
+      <th>Producto of cantidad</th>
+      <th>Producto of precio unitario</th>
+      <th>Producto of fecha publicacion</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @producto_ofertados.each do |producto_ofertado| %>
+      <tr>
+        <td><%= producto_ofertado.producto %></td>
+        <td><%= producto_ofertado.producto_of %></td>
+        <td><%= producto_ofertado.usuario %></td>
+        <td><%= producto_ofertado.producto_of_cantidad %></td>
+        <td><%= producto_ofertado.producto_of_precio_unitario %></td>
+        <td><%= producto_ofertado.producto_of_fecha_publicacion %></td>
+        <td><%= link_to 'Show', producto_ofertado %></td>
+        <td><%= link_to 'Edit', edit_producto_ofertado_path(producto_ofertado) %></td>
+        <td><%= link_to 'Destroy', producto_ofertado, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Producto ofertado', new_producto_ofertado_path %>

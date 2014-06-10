@@ -1,0 +1,29 @@
+<%= form_for(@provincia_unit) do |f| %>
+  <% if @provincia_unit.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@provincia_unit.errors.count, "error") %> prohibited this provincia_unit from being saved:</h2>
+
+      <ul>
+      <% @provincia_unit.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :provincia_id %><br>
+    <%= f.text_field :provincia_id %>
+  </div>
+  <div class="field">
+    <%= f.label :region_id %><br>
+    <%= f.text_field :region_id %>
+  </div>
+  <div class="field">
+    <%= f.label :provincia_nombre %><br>
+    <%= f.text_field :provincia_nombre %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

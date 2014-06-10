@@ -1,0 +1,27 @@
+<h1>Listing est_prod_of_necs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Estado prod of necesidad</th>
+      <th>Estado prod of necesidad nombre</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @est_prod_of_necs.each do |est_prod_of_nec| %>
+      <tr>
+        <td><%= est_prod_of_nec.estado_prod_of_necesidad %></td>
+        <td><%= est_prod_of_nec.estado_prod_of_necesidad_nombre %></td>
+        <td><%= link_to 'Show', est_prod_of_nec %></td>
+        <td><%= link_to 'Edit', edit_est_prod_of_nec_path(est_prod_of_nec) %></td>
+        <td><%= link_to 'Destroy', est_prod_of_nec, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Est prod of nec', new_est_prod_of_nec_path %>

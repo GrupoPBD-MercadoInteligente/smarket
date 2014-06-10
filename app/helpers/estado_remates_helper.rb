@@ -1,0 +1,2 @@
+module EstadoRematesHelper
+end

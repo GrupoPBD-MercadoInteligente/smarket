@@ -1,0 +1,29 @@
+<h1>Listing provincia_units</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Provincia</th>
+      <th>Region</th>
+      <th>Provincia nombre</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @provincia_units.each do |provincia_unit| %>
+      <tr>
+        <td><%= provincia_unit.provincia %></td>
+        <td><%= provincia_unit.region %></td>
+        <td><%= provincia_unit.provincia_nombre %></td>
+        <td><%= link_to 'Show', provincia_unit %></td>
+        <td><%= link_to 'Edit', edit_provincia_unit_path(provincia_unit) %></td>
+        <td><%= link_to 'Destroy', provincia_unit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Provincia unit', new_provincia_unit_path %>

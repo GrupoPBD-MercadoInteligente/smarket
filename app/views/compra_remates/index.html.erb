@@ -1,0 +1,35 @@
+<h1>Listing compra_remates</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tipo trans</th>
+      <th>Comprasubasta</th>
+      <th>Usuario</th>
+      <th>Prod sub</th>
+      <th>Usu usuario</th>
+      <th>Comprasubasta fecha</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @compra_remates.each do |compra_remate| %>
+      <tr>
+        <td><%= compra_remate.tipo_trans %></td>
+        <td><%= compra_remate.comprasubasta %></td>
+        <td><%= compra_remate.usuario %></td>
+        <td><%= compra_remate.prod_sub %></td>
+        <td><%= compra_remate.usu_usuario %></td>
+        <td><%= compra_remate.comprasubasta_fecha %></td>
+        <td><%= link_to 'Show', compra_remate %></td>
+        <td><%= link_to 'Edit', edit_compra_remate_path(compra_remate) %></td>
+        <td><%= link_to 'Destroy', compra_remate, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Compra remate', new_compra_remate_path %>

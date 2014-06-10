@@ -1,0 +1,29 @@
+<%= form_for(@condicion) do |f| %>
+  <% if @condicion.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@condicion.errors.count, "error") %> prohibited this condicion from being saved:</h2>
+
+      <ul>
+      <% @condicion.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :condicion_id %><br>
+    <%= f.text_field :condicion_id %>
+  </div>
+  <div class="field">
+    <%= f.label :tipo_trans_id %><br>
+    <%= f.text_field :tipo_trans_id %>
+  </div>
+  <div class="field">
+    <%= f.label :condicion_porcentaje_comision %><br>
+    <%= f.text_field :condicion_porcentaje_comision %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

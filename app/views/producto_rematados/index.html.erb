@@ -1,0 +1,31 @@
+<h1>Listing producto_rematados</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Producto</th>
+      <th>Prod sub</th>
+      <th>Prod sub cantidad</th>
+      <th>Prod sub precio unitario</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @producto_rematados.each do |producto_rematado| %>
+      <tr>
+        <td><%= producto_rematado.producto %></td>
+        <td><%= producto_rematado.prod_sub %></td>
+        <td><%= producto_rematado.prod_sub_cantidad %></td>
+        <td><%= producto_rematado.prod_sub_precio_unitario %></td>
+        <td><%= link_to 'Show', producto_rematado %></td>
+        <td><%= link_to 'Edit', edit_producto_rematado_path(producto_rematado) %></td>
+        <td><%= link_to 'Destroy', producto_rematado, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Producto rematado', new_producto_rematado_path %>

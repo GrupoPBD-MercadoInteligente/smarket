@@ -1,0 +1,27 @@
+<h1>Listing estado_notificacions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Estado not</th>
+      <th>Estado not nombre</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @estado_notificacions.each do |estado_notificacion| %>
+      <tr>
+        <td><%= estado_notificacion.estado_not %></td>
+        <td><%= estado_notificacion.estado_not_nombre %></td>
+        <td><%= link_to 'Show', estado_notificacion %></td>
+        <td><%= link_to 'Edit', edit_estado_notificacion_path(estado_notificacion) %></td>
+        <td><%= link_to 'Destroy', estado_notificacion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Estado notificacion', new_estado_notificacion_path %>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  puja_id: 
+  sub_id: 
+  usuario_id: 
+  puja_valor: 1
+  puja_correlativo: 1
+
+two:
+  puja_id: 
+  sub_id: 
+  usuario_id: 
+  puja_valor: 1
+  puja_correlativo: 1

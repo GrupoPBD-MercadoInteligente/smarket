@@ -1,0 +1,29 @@
+<h1>Listing comisions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Comision</th>
+      <th>Transaccion</th>
+      <th>Comision monto</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @comisions.each do |comision| %>
+      <tr>
+        <td><%= comision.comision %></td>
+        <td><%= comision.transaccion %></td>
+        <td><%= comision.comision_monto %></td>
+        <td><%= link_to 'Show', comision %></td>
+        <td><%= link_to 'Edit', edit_comision_path(comision) %></td>
+        <td><%= link_to 'Destroy', comision, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Comision', new_comision_path %>

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Producto:</strong>
+  <%= @producto_rematado.producto %>
+</p>
+
+<p>
+  <strong>Prod sub:</strong>
+  <%= @producto_rematado.prod_sub %>
+</p>
+
+<p>
+  <strong>Prod sub cantidad:</strong>
+  <%= @producto_rematado.prod_sub_cantidad %>
+</p>
+
+<p>
+  <strong>Prod sub precio unitario:</strong>
+  <%= @producto_rematado.prod_sub_precio_unitario %>
+</p>
+
+<%= link_to 'Edit', edit_producto_rematado_path(@producto_rematado) %> |
+<%= link_to 'Back', producto_rematados_path %>

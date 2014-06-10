@@ -1,0 +1,33 @@
+<h1>Listing notificacions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Notificacion</th>
+      <th>Usuario</th>
+      <th>Estado not</th>
+      <th>Notificacio titulo</th>
+      <th>Notificacion texto</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @notificacions.each do |notificacion| %>
+      <tr>
+        <td><%= notificacion.notificacion %></td>
+        <td><%= notificacion.usuario %></td>
+        <td><%= notificacion.estado_not %></td>
+        <td><%= notificacion.notificacio_titulo %></td>
+        <td><%= notificacion.notificacion_texto %></td>
+        <td><%= link_to 'Show', notificacion %></td>
+        <td><%= link_to 'Edit', edit_notificacion_path(notificacion) %></td>
+        <td><%= link_to 'Destroy', notificacion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Notificacion', new_notificacion_path %>

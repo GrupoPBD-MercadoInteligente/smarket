@@ -1,0 +1,29 @@
+<%= form_for(@ganancia_liquida) do |f| %>
+  <% if @ganancia_liquida.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@ganancia_liquida.errors.count, "error") %> prohibited this ganancia_liquida from being saved:</h2>
+
+      <ul>
+      <% @ganancia_liquida.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :ganancia_liquida_id %><br>
+    <%= f.text_field :ganancia_liquida_id %>
+  </div>
+  <div class="field">
+    <%= f.label :transaccion_id %><br>
+    <%= f.text_field :transaccion_id %>
+  </div>
+  <div class="field">
+    <%= f.label :ganancia_liquida_monto %><br>
+    <%= f.number_field :ganancia_liquida_monto %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

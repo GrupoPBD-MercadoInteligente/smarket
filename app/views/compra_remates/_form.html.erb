@@ -1,0 +1,41 @@
+<%= form_for(@compra_remate) do |f| %>
+  <% if @compra_remate.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@compra_remate.errors.count, "error") %> prohibited this compra_remate from being saved:</h2>
+
+      <ul>
+      <% @compra_remate.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :tipo_trans_id %><br>
+    <%= f.text_field :tipo_trans_id %>
+  </div>
+  <div class="field">
+    <%= f.label :comprasubasta_id %><br>
+    <%= f.text_field :comprasubasta_id %>
+  </div>
+  <div class="field">
+    <%= f.label :usuario_id %><br>
+    <%= f.text_field :usuario_id %>
+  </div>
+  <div class="field">
+    <%= f.label :prod_sub_id %><br>
+    <%= f.text_field :prod_sub_id %>
+  </div>
+  <div class="field">
+    <%= f.label :usu_usuario_id %><br>
+    <%= f.text_field :usu_usuario_id %>
+  </div>
+  <div class="field">
+    <%= f.label :comprasubasta_fecha %><br>
+    <%= f.date_select :comprasubasta_fecha %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

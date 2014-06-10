@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  auditoria_id: 
+  auditoria_usuario: MyString
+  auditoria_tabla_mod: MyString
+  auditoria_operacion: MyString
+  auditoria_fecha: 2014-06-10
+  auditoria_attr_mod: MyString
+  auditoria_antes: MyString
+  auditoria_despues: MyString
+
+two:
+  auditoria_id: 
+  auditoria_usuario: MyString
+  auditoria_tabla_mod: MyString
+  auditoria_operacion: MyString
+  auditoria_fecha: 2014-06-10
+  auditoria_attr_mod: MyString
+  auditoria_antes: MyString
+  auditoria_despues: MyString

@@ -1,0 +1,25 @@
+<%= form_for(@estado_remate) do |f| %>
+  <% if @estado_remate.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@estado_remate.errors.count, "error") %> prohibited this estado_remate from being saved:</h2>
+
+      <ul>
+      <% @estado_remate.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :estado_subasta_id %><br>
+    <%= f.text_field :estado_subasta_id %>
+  </div>
+  <div class="field">
+    <%= f.label :estado_subasta_nombre %><br>
+    <%= f.text_field :estado_subasta_nombre %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

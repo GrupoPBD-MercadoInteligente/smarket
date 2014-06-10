@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Comision:</strong>
+  <%= @comision.comision %>
+</p>
+
+<p>
+  <strong>Transaccion:</strong>
+  <%= @comision.transaccion %>
+</p>
+
+<p>
+  <strong>Comision monto:</strong>
+  <%= @comision.comision_monto %>
+</p>
+
+<%= link_to 'Edit', edit_comision_path(@comision) %> |
+<%= link_to 'Back', comisions_path %>

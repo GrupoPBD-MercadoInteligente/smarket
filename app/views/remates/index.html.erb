@@ -1,0 +1,37 @@
+<h1>Listing remates</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Sub</th>
+      <th>Estado subasta</th>
+      <th>Usuario</th>
+      <th>Prod sub</th>
+      <th>Sub monto max</th>
+      <th>Sub fecha inicio</th>
+      <th>Sub fecha termino</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @remates.each do |remate| %>
+      <tr>
+        <td><%= remate.sub %></td>
+        <td><%= remate.estado_subasta %></td>
+        <td><%= remate.usuario %></td>
+        <td><%= remate.prod_sub %></td>
+        <td><%= remate.sub_monto_max %></td>
+        <td><%= remate.sub_fecha_inicio %></td>
+        <td><%= remate.sub_fecha_termino %></td>
+        <td><%= link_to 'Show', remate %></td>
+        <td><%= link_to 'Edit', edit_remate_path(remate) %></td>
+        <td><%= link_to 'Destroy', remate, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Remate', new_remate_path %>

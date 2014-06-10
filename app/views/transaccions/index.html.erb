@@ -1,0 +1,27 @@
+<h1>Listing transaccions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Transaccion</th>
+      <th>Tipo trans</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @transaccions.each do |transaccion| %>
+      <tr>
+        <td><%= transaccion.transaccion %></td>
+        <td><%= transaccion.tipo_trans %></td>
+        <td><%= link_to 'Show', transaccion %></td>
+        <td><%= link_to 'Edit', edit_transaccion_path(transaccion) %></td>
+        <td><%= link_to 'Destroy', transaccion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Transaccion', new_transaccion_path %>

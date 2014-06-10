@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ganancia_liquida_id: 
+  transaccion_id: 
+  ganancia_liquida_monto: 1
+
+two:
+  ganancia_liquida_id: 
+  transaccion_id: 
+  ganancia_liquida_monto: 1

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  producto_id: 
+  prod_nec_id: 
+  usuario_id: 
+  prod_nec_cantidad: 1
+  prod_nec_preciotope: 1
+  prod_nec_fecha_publicacion: 2014-06-10
+
+two:
+  producto_id: 
+  prod_nec_id: 
+  usuario_id: 
+  prod_nec_cantidad: 1
+  prod_nec_preciotope: 1
+  prod_nec_fecha_publicacion: 2014-06-10

@@ -1,0 +1,29 @@
+<h1>Listing ganancia_liquidas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Ganancia liquida</th>
+      <th>Transaccion</th>
+      <th>Ganancia liquida monto</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ganancia_liquidas.each do |ganancia_liquida| %>
+      <tr>
+        <td><%= ganancia_liquida.ganancia_liquida %></td>
+        <td><%= ganancia_liquida.transaccion %></td>
+        <td><%= ganancia_liquida.ganancia_liquida_monto %></td>
+        <td><%= link_to 'Show', ganancia_liquida %></td>
+        <td><%= link_to 'Edit', edit_ganancia_liquida_path(ganancia_liquida) %></td>
+        <td><%= link_to 'Destroy', ganancia_liquida, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ganancia liquida', new_ganancia_liquida_path %>

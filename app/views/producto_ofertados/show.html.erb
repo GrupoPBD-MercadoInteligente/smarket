@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Producto:</strong>
+  <%= @producto_ofertado.producto %>
+</p>
+
+<p>
+  <strong>Producto of:</strong>
+  <%= @producto_ofertado.producto_of %>
+</p>
+
+<p>
+  <strong>Usuario:</strong>
+  <%= @producto_ofertado.usuario %>
+</p>
+
+<p>
+  <strong>Producto of cantidad:</strong>
+  <%= @producto_ofertado.producto_of_cantidad %>
+</p>
+
+<p>
+  <strong>Producto of precio unitario:</strong>
+  <%= @producto_ofertado.producto_of_precio_unitario %>
+</p>
+
+<p>
+  <strong>Producto of fecha publicacion:</strong>
+  <%= @producto_ofertado.producto_of_fecha_publicacion %>
+</p>
+
+<%= link_to 'Edit', edit_producto_ofertado_path(@producto_ofertado) %> |
+<%= link_to 'Back', producto_ofertados_path %>

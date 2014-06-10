@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Condicion:</strong>
+  <%= @condicion.condicion %>
+</p>
+
+<p>
+  <strong>Tipo trans:</strong>
+  <%= @condicion.tipo_trans %>
+</p>
+
+<p>
+  <strong>Condicion porcentaje comision:</strong>
+  <%= @condicion.condicion_porcentaje_comision %>
+</p>
+
+<%= link_to 'Edit', edit_condicion_path(@condicion) %> |
+<%= link_to 'Back', condicions_path %>

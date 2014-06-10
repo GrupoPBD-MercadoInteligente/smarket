@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  condicion_id: 
+  tipo_trans_id: 
+  condicion_porcentaje_comision: 1.5
+
+two:
+  condicion_id: 
+  tipo_trans_id: 
+  condicion_porcentaje_comision: 1.5

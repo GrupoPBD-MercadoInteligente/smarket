@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Puja:</strong>
+  <%= @puja.puja %>
+</p>
+
+<p>
+  <strong>Sub:</strong>
+  <%= @puja.sub %>
+</p>
+
+<p>
+  <strong>Usuario:</strong>
+  <%= @puja.usuario %>
+</p>
+
+<p>
+  <strong>Puja valor:</strong>
+  <%= @puja.puja_valor %>
+</p>
+
+<p>
+  <strong>Puja correlativo:</strong>
+  <%= @puja.puja_correlativo %>
+</p>
+
+<%= link_to 'Edit', edit_puja_path(@puja) %> |
+<%= link_to 'Back', pujas_path %>

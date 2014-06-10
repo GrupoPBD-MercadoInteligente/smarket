@@ -1,0 +1,49 @@
+<%= form_for(@prod_of_nec) do |f| %>
+  <% if @prod_of_nec.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@prod_of_nec.errors.count, "error") %> prohibited this prod_of_nec from being saved:</h2>
+
+      <ul>
+      <% @prod_of_nec.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :producto_id %><br>
+    <%= f.text_field :producto_id %>
+  </div>
+  <div class="field">
+    <%= f.label :prod_of_nec_id %><br>
+    <%= f.text_field :prod_of_nec_id %>
+  </div>
+  <div class="field">
+    <%= f.label :usuario_id %><br>
+    <%= f.text_field :usuario_id %>
+  </div>
+  <div class="field">
+    <%= f.label :estado_prod_of_necesidad_id %><br>
+    <%= f.text_field :estado_prod_of_necesidad_id %>
+  </div>
+  <div class="field">
+    <%= f.label :prod_nec_id %><br>
+    <%= f.text_field :prod_nec_id %>
+  </div>
+  <div class="field">
+    <%= f.label :prod_of_nec_cantidad %><br>
+    <%= f.number_field :prod_of_nec_cantidad %>
+  </div>
+  <div class="field">
+    <%= f.label :prod_of_nec_precio_unitario %><br>
+    <%= f.number_field :prod_of_nec_precio_unitario %>
+  </div>
+  <div class="field">
+    <%= f.label :prod_of_nec_fecha_publicacion %><br>
+    <%= f.date_select :prod_of_nec_fecha_publicacion %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

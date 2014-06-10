@@ -1,0 +1,45 @@
+<%= form_for(@remate) do |f| %>
+  <% if @remate.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@remate.errors.count, "error") %> prohibited this remate from being saved:</h2>
+
+      <ul>
+      <% @remate.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :sub_id %><br>
+    <%= f.text_field :sub_id %>
+  </div>
+  <div class="field">
+    <%= f.label :estado_subasta_id %><br>
+    <%= f.text_field :estado_subasta_id %>
+  </div>
+  <div class="field">
+    <%= f.label :usuario_id %><br>
+    <%= f.text_field :usuario_id %>
+  </div>
+  <div class="field">
+    <%= f.label :prod_sub_id %><br>
+    <%= f.text_field :prod_sub_id %>
+  </div>
+  <div class="field">
+    <%= f.label :sub_monto_max %><br>
+    <%= f.number_field :sub_monto_max %>
+  </div>
+  <div class="field">
+    <%= f.label :sub_fecha_inicio %><br>
+    <%= f.date_select :sub_fecha_inicio %>
+  </div>
+  <div class="field">
+    <%= f.label :sub_fecha_termino %><br>
+    <%= f.date_select :sub_fecha_termino %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

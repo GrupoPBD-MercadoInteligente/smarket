@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tipo_trans_id: 
+  compraventa_id: 
+  usuario_id: 
+  prod_of_nec_id: 
+  usu_usuario_id: 
+  compraventanor_fecha: 2014-06-10
+
+two:
+  tipo_trans_id: 
+  compraventa_id: 
+  usuario_id: 
+  prod_of_nec_id: 
+  usu_usuario_id: 
+  compraventanor_fecha: 2014-06-10

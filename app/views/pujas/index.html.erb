@@ -1,0 +1,33 @@
+<h1>Listing pujas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Puja</th>
+      <th>Sub</th>
+      <th>Usuario</th>
+      <th>Puja valor</th>
+      <th>Puja correlativo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pujas.each do |puja| %>
+      <tr>
+        <td><%= puja.puja %></td>
+        <td><%= puja.sub %></td>
+        <td><%= puja.usuario %></td>
+        <td><%= puja.puja_valor %></td>
+        <td><%= puja.puja_correlativo %></td>
+        <td><%= link_to 'Show', puja %></td>
+        <td><%= link_to 'Edit', edit_puja_path(puja) %></td>
+        <td><%= link_to 'Destroy', puja, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Puja', new_puja_path %>

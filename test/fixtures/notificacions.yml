@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  notificacion_id: 
+  usuario_id: 
+  estado_not_id: 
+  notificacio_titulo: MyString
+  notificacion_texto: MyString
+
+two:
+  notificacion_id: 
+  usuario_id: 
+  estado_not_id: 
+  notificacio_titulo: MyString
+  notificacion_texto: MyString

@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Tipo trans:</strong>
+  <%= @compra_remate.tipo_trans %>
+</p>
+
+<p>
+  <strong>Comprasubasta:</strong>
+  <%= @compra_remate.comprasubasta %>
+</p>
+
+<p>
+  <strong>Usuario:</strong>
+  <%= @compra_remate.usuario %>
+</p>
+
+<p>
+  <strong>Prod sub:</strong>
+  <%= @compra_remate.prod_sub %>
+</p>
+
+<p>
+  <strong>Usu usuario:</strong>
+  <%= @compra_remate.usu_usuario %>
+</p>
+
+<p>
+  <strong>Comprasubasta fecha:</strong>
+  <%= @compra_remate.comprasubasta_fecha %>
+</p>
+
+<%= link_to 'Edit', edit_compra_remate_path(@compra_remate) %> |
+<%= link_to 'Back', compra_remates_path %>

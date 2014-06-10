@@ -1,0 +1,35 @@
+<h1>Listing compra_venta_normals</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tipo trans</th>
+      <th>Compraventa id2</th>
+      <th>Usuario</th>
+      <th>Usu usuario</th>
+      <th>Producto of</th>
+      <th>Compraventanor fecha</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @compra_venta_normals.each do |compra_venta_normal| %>
+      <tr>
+        <td><%= compra_venta_normal.tipo_trans %></td>
+        <td><%= compra_venta_normal.compraventa_id2 %></td>
+        <td><%= compra_venta_normal.usuario %></td>
+        <td><%= compra_venta_normal.usu_usuario %></td>
+        <td><%= compra_venta_normal.producto_of %></td>
+        <td><%= compra_venta_normal.compraventanor_fecha %></td>
+        <td><%= link_to 'Show', compra_venta_normal %></td>
+        <td><%= link_to 'Edit', edit_compra_venta_normal_path(compra_venta_normal) %></td>
+        <td><%= link_to 'Destroy', compra_venta_normal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Compra venta normal', new_compra_venta_normal_path %>

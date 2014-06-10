@@ -1,0 +1,41 @@
+<%= form_for(@compra_venta_especial) do |f| %>
+  <% if @compra_venta_especial.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@compra_venta_especial.errors.count, "error") %> prohibited this compra_venta_especial from being saved:</h2>
+
+      <ul>
+      <% @compra_venta_especial.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :tipo_trans_id %><br>
+    <%= f.text_field :tipo_trans_id %>
+  </div>
+  <div class="field">
+    <%= f.label :compraventa_id %><br>
+    <%= f.text_field :compraventa_id %>
+  </div>
+  <div class="field">
+    <%= f.label :usuario_id %><br>
+    <%= f.text_field :usuario_id %>
+  </div>
+  <div class="field">
+    <%= f.label :prod_of_nec_id %><br>
+    <%= f.text_field :prod_of_nec_id %>
+  </div>
+  <div class="field">
+    <%= f.label :usu_usuario_id %><br>
+    <%= f.text_field :usu_usuario_id %>
+  </div>
+  <div class="field">
+    <%= f.label :compraventanor_fecha %><br>
+    <%= f.date_select :compraventanor_fecha %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

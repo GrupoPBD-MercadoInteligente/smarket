@@ -1,0 +1,29 @@
+<h1>Listing clase_units</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Clase</th>
+      <th>Cla clase</th>
+      <th>Clase nombre</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @clase_units.each do |clase_unit| %>
+      <tr>
+        <td><%= clase_unit.clase %></td>
+        <td><%= clase_unit.cla_clase %></td>
+        <td><%= clase_unit.clase_nombre %></td>
+        <td><%= link_to 'Show', clase_unit %></td>
+        <td><%= link_to 'Edit', edit_clase_unit_path(clase_unit) %></td>
+        <td><%= link_to 'Destroy', clase_unit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Clase unit', new_clase_unit_path %>

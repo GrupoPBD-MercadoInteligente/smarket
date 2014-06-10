@@ -1,0 +1,27 @@
+<h1>Listing propiedads</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propiedad</th>
+      <th>Propiedad nombre</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @propiedads.each do |propiedad| %>
+      <tr>
+        <td><%= propiedad.propiedad %></td>
+        <td><%= propiedad.propiedad_nombre %></td>
+        <td><%= link_to 'Show', propiedad %></td>
+        <td><%= link_to 'Edit', edit_propiedad_path(propiedad) %></td>
+        <td><%= link_to 'Destroy', propiedad, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Propiedad', new_propiedad_path %>

@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Sub:</strong>
+  <%= @remate.sub %>
+</p>
+
+<p>
+  <strong>Estado subasta:</strong>
+  <%= @remate.estado_subasta %>
+</p>
+
+<p>
+  <strong>Usuario:</strong>
+  <%= @remate.usuario %>
+</p>
+
+<p>
+  <strong>Prod sub:</strong>
+  <%= @remate.prod_sub %>
+</p>
+
+<p>
+  <strong>Sub monto max:</strong>
+  <%= @remate.sub_monto_max %>
+</p>
+
+<p>
+  <strong>Sub fecha inicio:</strong>
+  <%= @remate.sub_fecha_inicio %>
+</p>
+
+<p>
+  <strong>Sub fecha termino:</strong>
+  <%= @remate.sub_fecha_termino %>
+</p>
+
+<%= link_to 'Edit', edit_remate_path(@remate) %> |
+<%= link_to 'Back', remates_path %>

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  comision_id: 
+  transaccion_id: 
+  comision_monto: 1
+
+two:
+  comision_id: 
+  transaccion_id: 
+  comision_monto: 1

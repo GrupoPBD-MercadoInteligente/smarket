@@ -1,0 +1,35 @@
+<h1>Listing producto_necesitados</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Producto</th>
+      <th>Prod nec</th>
+      <th>Usuario</th>
+      <th>Prod nec cantidad</th>
+      <th>Prod nec preciotope</th>
+      <th>Prod nec fecha publicacion</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @producto_necesitados.each do |producto_necesitado| %>
+      <tr>
+        <td><%= producto_necesitado.producto %></td>
+        <td><%= producto_necesitado.prod_nec %></td>
+        <td><%= producto_necesitado.usuario %></td>
+        <td><%= producto_necesitado.prod_nec_cantidad %></td>
+        <td><%= producto_necesitado.prod_nec_preciotope %></td>
+        <td><%= producto_necesitado.prod_nec_fecha_publicacion %></td>
+        <td><%= link_to 'Show', producto_necesitado %></td>
+        <td><%= link_to 'Edit', edit_producto_necesitado_path(producto_necesitado) %></td>
+        <td><%= link_to 'Destroy', producto_necesitado, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Producto necesitado', new_producto_necesitado_path %>

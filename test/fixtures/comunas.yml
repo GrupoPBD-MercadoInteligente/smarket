@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  comuna_id: 
+  provincia_id: 
+  comuna_nombre: MyString
+
+two:
+  comuna_id: 
+  provincia_id: 
+  comuna_nombre: MyString

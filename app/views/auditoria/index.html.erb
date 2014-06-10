@@ -1,0 +1,39 @@
+<h1>Listing auditoria</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Auditoria</th>
+      <th>Auditoria usuario</th>
+      <th>Auditoria tabla mod</th>
+      <th>Auditoria operacion</th>
+      <th>Auditoria fecha</th>
+      <th>Auditoria attr mod</th>
+      <th>Auditoria antes</th>
+      <th>Auditoria despues</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @auditoria.each do |auditorium| %>
+      <tr>
+        <td><%= auditorium.auditoria %></td>
+        <td><%= auditorium.auditoria_usuario %></td>
+        <td><%= auditorium.auditoria_tabla_mod %></td>
+        <td><%= auditorium.auditoria_operacion %></td>
+        <td><%= auditorium.auditoria_fecha %></td>
+        <td><%= auditorium.auditoria_attr_mod %></td>
+        <td><%= auditorium.auditoria_antes %></td>
+        <td><%= auditorium.auditoria_despues %></td>
+        <td><%= link_to 'Show', auditorium %></td>
+        <td><%= link_to 'Edit', edit_auditorium_path(auditorium) %></td>
+        <td><%= link_to 'Destroy', auditorium, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Auditorium', new_auditorium_path %>

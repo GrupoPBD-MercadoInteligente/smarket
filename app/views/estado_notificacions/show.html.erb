@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Estado not:</strong>
+  <%= @estado_notificacion.estado_not %>
+</p>
+
+<p>
+  <strong>Estado not nombre:</strong>
+  <%= @estado_notificacion.estado_not_nombre %>
+</p>
+
+<%= link_to 'Edit', edit_estado_notificacion_path(@estado_notificacion) %> |
+<%= link_to 'Back', estado_notificacions_path %>

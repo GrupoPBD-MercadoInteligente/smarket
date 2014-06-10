@@ -1,0 +1,39 @@
+<h1>Listing prod_of_necs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Producto</th>
+      <th>Prod of nec</th>
+      <th>Usuario</th>
+      <th>Estado prod of necesidad</th>
+      <th>Prod nec</th>
+      <th>Prod of nec cantidad</th>
+      <th>Prod of nec precio unitario</th>
+      <th>Prod of nec fecha publicacion</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @prod_of_necs.each do |prod_of_nec| %>
+      <tr>
+        <td><%= prod_of_nec.producto %></td>
+        <td><%= prod_of_nec.prod_of_nec %></td>
+        <td><%= prod_of_nec.usuario %></td>
+        <td><%= prod_of_nec.estado_prod_of_necesidad %></td>
+        <td><%= prod_of_nec.prod_nec %></td>
+        <td><%= prod_of_nec.prod_of_nec_cantidad %></td>
+        <td><%= prod_of_nec.prod_of_nec_precio_unitario %></td>
+        <td><%= prod_of_nec.prod_of_nec_fecha_publicacion %></td>
+        <td><%= link_to 'Show', prod_of_nec %></td>
+        <td><%= link_to 'Edit', edit_prod_of_nec_path(prod_of_nec) %></td>
+        <td><%= link_to 'Destroy', prod_of_nec, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Prod of nec', new_prod_of_nec_path %>

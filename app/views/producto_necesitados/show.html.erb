@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Producto:</strong>
+  <%= @producto_necesitado.producto %>
+</p>
+
+<p>
+  <strong>Prod nec:</strong>
+  <%= @producto_necesitado.prod_nec %>
+</p>
+
+<p>
+  <strong>Usuario:</strong>
+  <%= @producto_necesitado.usuario %>
+</p>
+
+<p>
+  <strong>Prod nec cantidad:</strong>
+  <%= @producto_necesitado.prod_nec_cantidad %>
+</p>
+
+<p>
+  <strong>Prod nec preciotope:</strong>
+  <%= @producto_necesitado.prod_nec_preciotope %>
+</p>
+
+<p>
+  <strong>Prod nec fecha publicacion:</strong>
+  <%= @producto_necesitado.prod_nec_fecha_publicacion %>
+</p>
+
+<%= link_to 'Edit', edit_producto_necesitado_path(@producto_necesitado) %> |
+<%= link_to 'Back', producto_necesitados_path %>

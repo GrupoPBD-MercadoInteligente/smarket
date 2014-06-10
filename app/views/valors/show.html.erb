@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Valor:</strong>
+  <%= @valor.valor %>
+</p>
+
+<p>
+  <strong>Propiedad:</strong>
+  <%= @valor.propiedad %>
+</p>
+
+<p>
+  <strong>Producto:</strong>
+  <%= @valor.producto %>
+</p>
+
+<p>
+  <strong>Valor nombre:</strong>
+  <%= @valor.valor_nombre %>
+</p>
+
+<%= link_to 'Edit', edit_valor_path(@valor) %> |
+<%= link_to 'Back', valors_path %>

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sub_id: 
+  estado_subasta_id: 
+  usuario_id: 
+  prod_sub_id: 
+  sub_monto_max: 1
+  sub_fecha_inicio: 2014-06-10
+  sub_fecha_termino: 2014-06-10
+
+two:
+  sub_id: 
+  estado_subasta_id: 
+  usuario_id: 
+  prod_sub_id: 
+  sub_monto_max: 1
+  sub_fecha_inicio: 2014-06-10
+  sub_fecha_termino: 2014-06-10

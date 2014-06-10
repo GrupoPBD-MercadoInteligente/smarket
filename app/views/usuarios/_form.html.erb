@@ -1,0 +1,77 @@
+<%= form_for(@usuario) do |f| %>
+  <% if @usuario.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@usuario.errors.count, "error") %> prohibited this usuario from being saved:</h2>
+
+      <ul>
+      <% @usuario.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :usuario_id %><br>
+    <%= f.text_field :usuario_id %>
+  </div>
+  <div class="field">
+    <%= f.label :comuna_id %><br>
+    <%= f.text_field :comuna_id %>
+  </div>
+  <div class="field">
+    <%= f.label :usuario_nombre %><br>
+    <%= f.text_field :usuario_nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :usuario_apellidopat %><br>
+    <%= f.text_field :usuario_apellidopat %>
+  </div>
+  <div class="field">
+    <%= f.label :usuario_apellidomat %><br>
+    <%= f.text_field :usuario_apellidomat %>
+  </div>
+  <div class="field">
+    <%= f.label :usuario_rut %><br>
+    <%= f.text_field :usuario_rut %>
+  </div>
+  <div class="field">
+    <%= f.label :usuario_e_mail %><br>
+    <%= f.text_field :usuario_e_mail %>
+  </div>
+  <div class="field">
+    <%= f.label :usuario_nombre_usuario %><br>
+    <%= f.text_field :usuario_nombre_usuario %>
+  </div>
+  <div class="field">
+    <%= f.label :usuario_contrasena %><br>
+    <%= f.text_field :usuario_contrasena %>
+  </div>
+  <div class="field">
+    <%= f.label :usuario_vip %><br>
+    <%= f.check_box :usuario_vip %>
+  </div>
+  <div class="field">
+    <%= f.label :usuario_calle %><br>
+    <%= f.text_field :usuario_calle %>
+  </div>
+  <div class="field">
+    <%= f.label :usuario_numero_calle %><br>
+    <%= f.number_field :usuario_numero_calle %>
+  </div>
+  <div class="field">
+    <%= f.label :usuario_villa %><br>
+    <%= f.text_field :usuario_villa %>
+  </div>
+  <div class="field">
+    <%= f.label :usuario_numero_depto %><br>
+    <%= f.number_field :usuario_numero_depto %>
+  </div>
+  <div class="field">
+    <%= f.label :usuario_bloque %><br>
+    <%= f.number_field :usuario_bloque %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
