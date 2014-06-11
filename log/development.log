@@ -1,0 +1,1646 @@
+  [1m[36m (3.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (1.5ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateAuditoria (20140610124327)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (4.7ms)[0m  [1mCREATE TABLE "auditoria" ("id" serial primary key, "auditoria_id" integer, "auditoria_usuario" character varying(255), "auditoria_tabla_mod" character varying(255), "auditoria_operacion" character varying(255), "auditoria_fecha" date, "auditoria_attr_mod" character varying(255), "auditoria_antes" character varying(255), "auditoria_despues" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (0.7ms)[0m  CREATE  INDEX  "index_auditoria_on_auditoria_id" ON "auditoria"  ("auditoria_id")
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20140610124327"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Migrating to CreateCondicions (20140610124328)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.8ms)[0m  CREATE TABLE "condicions" ("id" serial primary key, "condicion_id" integer, "tipo_trans_id" integer, "condicion_porcentaje_comision" float, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (0.6ms)[0m  [1mCREATE  INDEX  "index_condicions_on_condicion_id" ON "condicions"  ("condicion_id")[0m
+  [1m[35m (0.6ms)[0m  CREATE  INDEX  "index_condicions_on_tipo_trans_id" ON "condicions"  ("tipo_trans_id")
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20140610124328"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Migrating to CreateComunas (20140610124329)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.1ms)[0m  CREATE TABLE "comunas" ("id" serial primary key, "comuna_id" integer, "provincia_id" integer, "comuna_nombre" character varying(255), "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (0.8ms)[0m  [1mCREATE  INDEX  "index_comunas_on_comuna_id" ON "comunas"  ("comuna_id")[0m
+  [1m[35m (0.7ms)[0m  CREATE  INDEX  "index_comunas_on_provincia_id" ON "comunas"  ("provincia_id")
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20140610124329"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+Migrating to CreateProductoOfertados (20140610124330)
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.4ms)[0m  CREATE TABLE "producto_ofertados" ("id" serial primary key, "producto_id" integer, "producto_of_id" integer, "usuario_id" integer, "producto_of_cantidad" integer, "producto_of_precio_unitario" integer, "producto_of_fecha_publicacion" date, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (0.8ms)[0m  [1mCREATE  INDEX  "index_producto_ofertados_on_producto_id" ON "producto_ofertados"  ("producto_id")[0m
+  [1m[35m (0.9ms)[0m  CREATE  INDEX  "index_producto_ofertados_on_producto_of_id" ON "producto_ofertados"  ("producto_of_id")
+  [1m[36m (0.8ms)[0m  [1mCREATE  INDEX  "index_producto_ofertados_on_usuario_id" ON "producto_ofertados"  ("usuario_id")[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140610124330"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Migrating to CreateEstadoNotificacions (20140610124331)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (1.7ms)[0m  [1mCREATE TABLE "estado_notificacions" ("id" serial primary key, "estado_not_id" integer, "estado_not_nombre" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (0.8ms)[0m  CREATE  INDEX  "index_estado_notificacions_on_estado_not_id" ON "estado_notificacions"  ("estado_not_id")
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20140610124331"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Migrating to CreateEstProdOfNecs (20140610124333)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.8ms)[0m  CREATE TABLE "est_prod_of_necs" ("id" serial primary key, "estado_prod_of_necesidad_id" integer, "estado_prod_of_necesidad_nombre" character varying(255), "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (0.8ms)[0m  [1mCREATE  INDEX  "index_est_prod_of_necs_on_estado_prod_of_necesidad_id" ON "est_prod_of_necs"  ("estado_prod_of_necesidad_id")[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140610124333"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Migrating to CreateGananciaLiquidas (20140610124334)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (1.7ms)[0m  [1mCREATE TABLE "ganancia_liquidas" ("id" serial primary key, "ganancia_liquida_id" integer, "transaccion_id" integer, "ganancia_liquida_monto" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (0.8ms)[0m  CREATE  INDEX  "index_ganancia_liquidas_on_ganancia_liquida_id" ON "ganancia_liquidas"  ("ganancia_liquida_id")
+  [1m[36m (0.7ms)[0m  [1mCREATE  INDEX  "index_ganancia_liquidas_on_transaccion_id" ON "ganancia_liquidas"  ("transaccion_id")[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140610124334"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Migrating to CreateEstadoRemates (20140610124335)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (2.4ms)[0m  [1mCREATE TABLE "estado_remates" ("id" serial primary key, "estado_subasta_id" integer, "estado_subasta_nombre" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (0.7ms)[0m  CREATE  INDEX  "index_estado_remates_on_estado_subasta_id" ON "estado_remates"  ("estado_subasta_id")
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20140610124335"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Migrating to CreateProductos (20140610124336)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.9ms)[0m  CREATE TABLE "productos" ("id" serial primary key, "producto_id" integer, "clase_id" integer, "producto_nombre" character varying(255), "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (0.8ms)[0m  [1mCREATE  INDEX  "index_productos_on_producto_id" ON "productos"  ("producto_id")[0m
+  [1m[35m (0.8ms)[0m  CREATE  INDEX  "index_productos_on_clase_id" ON "productos"  ("clase_id")
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20140610124336"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Migrating to CreateRegions (20140610124337)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.7ms)[0m  CREATE TABLE "regions" ("id" serial primary key, "region_id" integer, "region_nombre" character varying(255), "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (0.6ms)[0m  [1mCREATE  INDEX  "index_regions_on_region_id" ON "regions"  ("region_id")[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140610124337"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Migrating to CreatePropiedads (20140610124338)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (1.8ms)[0m  [1mCREATE TABLE "propiedads" ("id" serial primary key, "propiedad_id" integer, "propiedad_nombre" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (0.8ms)[0m  CREATE  INDEX  "index_propiedads_on_propiedad_id" ON "propiedads"  ("propiedad_id")
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20140610124338"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Migrating to CreateUsuarios (20140610124339)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (3.2ms)[0m  CREATE TABLE "usuarios" ("id" serial primary key, "usuario_id" integer, "comuna_id" integer, "usuario_nombre" character varying(255), "usuario_apellidopat" character varying(255), "usuario_apellidomat" character varying(255), "usuario_rut" character varying(255), "usuario_e_mail" character varying(255), "usuario_nombre_usuario" character varying(255), "usuario_contrasena" character varying(255), "usuario_vip" boolean, "usuario_calle" character varying(255), "usuario_numero_calle" integer, "usuario_villa" character varying(255), "usuario_numero_depto" integer, "usuario_bloque" integer, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (1.7ms)[0m  [1mCREATE  INDEX  "index_usuarios_on_usuario_id" ON "usuarios"  ("usuario_id")[0m
+  [1m[35m (1.0ms)[0m  CREATE  INDEX  "index_usuarios_on_comuna_id" ON "usuarios"  ("comuna_id")
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20140610124339"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Migrating to CreateValors (20140610124341)
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.6ms)[0m  CREATE TABLE "valors" ("id" serial primary key, "valor_id" integer, "propiedad_id" integer, "producto_id" integer, "valor_nombre" character varying(255), "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (1.0ms)[0m  [1mCREATE  INDEX  "index_valors_on_valor_id" ON "valors"  ("valor_id")[0m
+  [1m[35m (1.1ms)[0m  CREATE  INDEX  "index_valors_on_propiedad_id" ON "valors"  ("propiedad_id")
+  [1m[36m (1.2ms)[0m  [1mCREATE  INDEX  "index_valors_on_producto_id" ON "valors"  ("producto_id")[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140610124341"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Migrating to CreatePujas (20140610124342)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (3.1ms)[0m  [1mCREATE TABLE "pujas" ("id" serial primary key, "puja_id" integer, "sub_id" integer, "usuario_id" integer, "puja_valor" integer, "puja_correlativo" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (1.0ms)[0m  CREATE  INDEX  "index_pujas_on_puja_id" ON "pujas"  ("puja_id")
+  [1m[36m (0.9ms)[0m  [1mCREATE  INDEX  "index_pujas_on_sub_id" ON "pujas"  ("sub_id")[0m
+  [1m[35m (1.0ms)[0m  CREATE  INDEX  "index_pujas_on_usuario_id" ON "pujas"  ("usuario_id")
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20140610124342"]]
+  [1m[35m (0.7ms)[0m  COMMIT
+Migrating to CreateRemates (20140610124343)
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (3.0ms)[0m  CREATE TABLE "remates" ("id" serial primary key, "sub_id" integer, "estado_subasta_id" integer, "usuario_id" integer, "prod_sub_id" integer, "sub_monto_max" integer, "sub_fecha_inicio" date, "sub_fecha_termino" date, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (1.0ms)[0m  [1mCREATE  INDEX  "index_remates_on_sub_id" ON "remates"  ("sub_id")[0m
+  [1m[35m (1.1ms)[0m  CREATE  INDEX  "index_remates_on_estado_subasta_id" ON "remates"  ("estado_subasta_id")
+  [1m[36m (1.0ms)[0m  [1mCREATE  INDEX  "index_remates_on_usuario_id" ON "remates"  ("usuario_id")[0m
+  [1m[35m (1.0ms)[0m  CREATE  INDEX  "index_remates_on_prod_sub_id" ON "remates"  ("prod_sub_id")
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20140610124343"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Migrating to CreateComisions (20140610124344)
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (3.3ms)[0m  CREATE TABLE "comisions" ("id" serial primary key, "comision_id" integer, "transaccion_id" integer, "comision_monto" integer, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (1.0ms)[0m  [1mCREATE  INDEX  "index_comisions_on_comision_id" ON "comisions"  ("comision_id")[0m
+  [1m[35m (1.0ms)[0m  CREATE  INDEX  "index_comisions_on_transaccion_id" ON "comisions"  ("transaccion_id")
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20140610124344"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Migrating to CreateNotificacions (20140610124345)
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (4.6ms)[0m  CREATE TABLE "notificacions" ("id" serial primary key, "notificacion_id" integer, "usuario_id" integer, "estado_not_id" integer, "notificacio_titulo" character varying(255), "notificacion_texto" character varying(255), "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (1.0ms)[0m  [1mCREATE  INDEX  "index_notificacions_on_notificacion_id" ON "notificacions"  ("notificacion_id")[0m
+  [1m[35m (0.9ms)[0m  CREATE  INDEX  "index_notificacions_on_usuario_id" ON "notificacions"  ("usuario_id")
+  [1m[36m (0.8ms)[0m  [1mCREATE  INDEX  "index_notificacions_on_estado_not_id" ON "notificacions"  ("estado_not_id")[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140610124345"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Migrating to CreateCompraRemates (20140610124347)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (2.5ms)[0m  [1mCREATE TABLE "compra_remates" ("id" serial primary key, "tipo_trans_id" integer, "comprasubasta_id" integer, "usuario_id" integer, "prod_sub_id" integer, "usu_usuario_id" integer, "comprasubasta_fecha" date, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (0.7ms)[0m  CREATE  INDEX  "index_compra_remates_on_tipo_trans_id" ON "compra_remates"  ("tipo_trans_id")
+  [1m[36m (0.7ms)[0m  [1mCREATE  INDEX  "index_compra_remates_on_comprasubasta_id" ON "compra_remates"  ("comprasubasta_id")[0m
+  [1m[35m (1.1ms)[0m  CREATE  INDEX  "index_compra_remates_on_usuario_id" ON "compra_remates"  ("usuario_id")
+  [1m[36m (1.0ms)[0m  [1mCREATE  INDEX  "index_compra_remates_on_prod_sub_id" ON "compra_remates"  ("prod_sub_id")[0m
+  [1m[35m (0.7ms)[0m  CREATE  INDEX  "index_compra_remates_on_usu_usuario_id" ON "compra_remates"  ("usu_usuario_id")
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20140610124347"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Migrating to CreateProductoNecesitados (20140610124348)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.3ms)[0m  CREATE TABLE "producto_necesitados" ("id" serial primary key, "producto_id" integer, "prod_nec_id" integer, "usuario_id" integer, "prod_nec_cantidad" integer, "prod_nec_preciotope" integer, "prod_nec_fecha_publicacion" date, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (0.7ms)[0m  [1mCREATE  INDEX  "index_producto_necesitados_on_producto_id" ON "producto_necesitados"  ("producto_id")[0m
+  [1m[35m (0.8ms)[0m  CREATE  INDEX  "index_producto_necesitados_on_prod_nec_id" ON "producto_necesitados"  ("prod_nec_id")
+  [1m[36m (0.6ms)[0m  [1mCREATE  INDEX  "index_producto_necesitados_on_usuario_id" ON "producto_necesitados"  ("usuario_id")[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140610124348"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Migrating to CreateCompraVentaEspecials (20140610124349)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (2.1ms)[0m  [1mCREATE TABLE "compra_venta_especials" ("id" serial primary key, "tipo_trans_id" integer, "compraventa_id" integer, "usuario_id" integer, "prod_of_nec_id" integer, "usu_usuario_id" integer, "compraventanor_fecha" date, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (0.8ms)[0m  CREATE  INDEX  "index_compra_venta_especials_on_tipo_trans_id" ON "compra_venta_especials"  ("tipo_trans_id")
+  [1m[36m (1.0ms)[0m  [1mCREATE  INDEX  "index_compra_venta_especials_on_compraventa_id" ON "compra_venta_especials"  ("compraventa_id")[0m
+  [1m[35m (0.7ms)[0m  CREATE  INDEX  "index_compra_venta_especials_on_usuario_id" ON "compra_venta_especials"  ("usuario_id")
+  [1m[36m (0.6ms)[0m  [1mCREATE  INDEX  "index_compra_venta_especials_on_prod_of_nec_id" ON "compra_venta_especials"  ("prod_of_nec_id")[0m
+  [1m[35m (0.8ms)[0m  CREATE  INDEX  "index_compra_venta_especials_on_usu_usuario_id" ON "compra_venta_especials"  ("usu_usuario_id")
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20140610124349"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Migrating to CreateProdOfNecs (20140610124350)
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (3.9ms)[0m  CREATE TABLE "prod_of_necs" ("id" serial primary key, "producto_id" integer, "prod_of_nec_id" integer, "usuario_id" integer, "estado_prod_of_necesidad_id" integer, "prod_nec_id" integer, "prod_of_nec_cantidad" integer, "prod_of_nec_precio_unitario" integer, "prod_of_nec_fecha_publicacion" date, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (0.7ms)[0m  [1mCREATE  INDEX  "index_prod_of_necs_on_producto_id" ON "prod_of_necs"  ("producto_id")[0m
+  [1m[35m (0.6ms)[0m  CREATE  INDEX  "index_prod_of_necs_on_prod_of_nec_id" ON "prod_of_necs"  ("prod_of_nec_id")
+  [1m[36m (0.7ms)[0m  [1mCREATE  INDEX  "index_prod_of_necs_on_usuario_id" ON "prod_of_necs"  ("usuario_id")[0m
+  [1m[35m (0.7ms)[0m  CREATE  INDEX  "index_prod_of_necs_on_estado_prod_of_necesidad_id" ON "prod_of_necs"  ("estado_prod_of_necesidad_id")
+  [1m[36m (0.6ms)[0m  [1mCREATE  INDEX  "index_prod_of_necs_on_prod_nec_id" ON "prod_of_necs"  ("prod_nec_id")[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140610124350"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Migrating to CreateClaseUnits (20140610124351)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (1.8ms)[0m  [1mCREATE TABLE "clase_units" ("id" serial primary key, "clase_id" integer, "cla_clase_id" integer, "clase_nombre" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (0.8ms)[0m  CREATE  INDEX  "index_clase_units_on_clase_id" ON "clase_units"  ("clase_id")
+  [1m[36m (0.8ms)[0m  [1mCREATE  INDEX  "index_clase_units_on_cla_clase_id" ON "clase_units"  ("cla_clase_id")[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140610124351"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Migrating to CreateCompraVentaNormals (20140610124353)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (1.9ms)[0m  [1mCREATE TABLE "compra_venta_normals" ("id" serial primary key, "tipo_trans_id" integer, "compraventa_id2" integer, "usuario_id" integer, "usu_usuario_id" integer, "producto_of_id" integer, "compraventanor_fecha" date, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (0.6ms)[0m  CREATE  INDEX  "index_compra_venta_normals_on_tipo_trans_id" ON "compra_venta_normals"  ("tipo_trans_id")
+  [1m[36m (0.6ms)[0m  [1mCREATE  INDEX  "index_compra_venta_normals_on_usuario_id" ON "compra_venta_normals"  ("usuario_id")[0m
+  [1m[35m (0.6ms)[0m  CREATE  INDEX  "index_compra_venta_normals_on_usu_usuario_id" ON "compra_venta_normals"  ("usu_usuario_id")
+  [1m[36m (0.8ms)[0m  [1mCREATE  INDEX  "index_compra_venta_normals_on_producto_of_id" ON "compra_venta_normals"  ("producto_of_id")[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140610124353"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Migrating to CreatePropiedadclases (20140610124354)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (1.9ms)[0m  [1mCREATE TABLE "propiedadclases" ("id" serial primary key, "propiedad_id" integer, "clase_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (0.7ms)[0m  CREATE  INDEX  "index_propiedadclases_on_propiedad_id" ON "propiedadclases"  ("propiedad_id")
+  [1m[36m (0.6ms)[0m  [1mCREATE  INDEX  "index_propiedadclases_on_clase_id" ON "propiedadclases"  ("clase_id")[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140610124354"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Migrating to CreateProvinciaUnits (20140610124355)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (1.7ms)[0m  [1mCREATE TABLE "provincia_units" ("id" serial primary key, "provincia_id" integer, "region_id" integer, "provincia_nombre" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (0.6ms)[0m  CREATE  INDEX  "index_provincia_units_on_provincia_id" ON "provincia_units"  ("provincia_id")
+  [1m[36m (1.0ms)[0m  [1mCREATE  INDEX  "index_provincia_units_on_region_id" ON "provincia_units"  ("region_id")[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140610124355"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Migrating to CreateProductoRematados (20140610124356)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (1.9ms)[0m  [1mCREATE TABLE "producto_rematados" ("id" serial primary key, "producto_id" integer, "prod_sub_id" integer, "prod_sub_cantidad" integer, "prod_sub_precio_unitario" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (0.8ms)[0m  CREATE  INDEX  "index_producto_rematados_on_producto_id" ON "producto_rematados"  ("producto_id")
+  [1m[36m (0.8ms)[0m  [1mCREATE  INDEX  "index_producto_rematados_on_prod_sub_id" ON "producto_rematados"  ("prod_sub_id")[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140610124356"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Migrating to CreateTipoTransaccions (20140610124357)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (2.2ms)[0m  [1mCREATE TABLE "tipo_transaccions" ("id" serial primary key, "tipo_trans_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (0.7ms)[0m  CREATE  INDEX  "index_tipo_transaccions_on_tipo_trans_id" ON "tipo_transaccions"  ("tipo_trans_id")
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20140610124357"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Migrating to CreateTransaccions (20140610124359)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.0ms)[0m  CREATE TABLE "transaccions" ("id" serial primary key, "transaccion_id" integer, "tipo_trans_id" integer, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (1.1ms)[0m  [1mCREATE  INDEX  "index_transaccions_on_transaccion_id" ON "transaccions"  ("transaccion_id")[0m
+  [1m[35m (0.7ms)[0m  CREATE  INDEX  "index_transaccions_on_tipo_trans_id" ON "transaccions"  ("tipo_trans_id")
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20140610124359"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/" for 127.0.0.1 at 2014-06-10 08:45:56 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Library/Ruby/Gems/2.0.0/gems/railties-4.1.1/lib/rails/templates/rails/welcome/index.html.erb (1.5ms)
+Completed 200 OK in 43ms (Views: 7.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/usuarios" for 127.0.0.1 at 2014-06-10 08:46:07 -0400
+Processing by UsuariosController#index as HTML
+  [1m[35mUsuario Load (1.1ms)[0m  SELECT "usuario".* FROM "usuario"
+  Rendered usuarios/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 6095ms (Views: 6087.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/auditoria.css?body=1" for 127.0.0.1 at 2014-06-10 08:46:14 -0400
+
+
+Started GET "/assets/clase_units.css?body=1" for 127.0.0.1 at 2014-06-10 08:46:14 -0400
+
+
+Started GET "/assets/comisions.css?body=1" for 127.0.0.1 at 2014-06-10 08:46:14 -0400
+
+
+Started GET "/assets/compra_venta_especials.css?body=1" for 127.0.0.1 at 2014-06-10 08:46:14 -0400
+
+
+Started GET "/assets/compra_remates.css?body=1" for 127.0.0.1 at 2014-06-10 08:46:14 -0400
+
+
+Started GET "/assets/compra_venta_normals.css?body=1" for 127.0.0.1 at 2014-06-10 08:46:14 -0400
+
+
+Started GET "/assets/comunas.css?body=1" for 127.0.0.1 at 2014-06-10 08:46:14 -0400
+
+
+Started GET "/assets/condicions.css?body=1" for 127.0.0.1 at 2014-06-10 08:46:14 -0400
+
+
+Started GET "/assets/est_prod_of_necs.css?body=1" for 127.0.0.1 at 2014-06-10 08:46:14 -0400
+
+
+Started GET "/assets/estado_notificacions.css?body=1" for 127.0.0.1 at 2014-06-10 08:46:14 -0400
+
+
+Started GET "/assets/estado_remates.css?body=1" for 127.0.0.1 at 2014-06-10 08:46:14 -0400
+
+
+Started GET "/assets/ganancia_liquidas.css?body=1" for 127.0.0.1 at 2014-06-10 08:46:14 -0400
+
+
+Started GET "/assets/notificacions.css?body=1" for 127.0.0.1 at 2014-06-10 08:46:14 -0400
+
+
+Started GET "/assets/prod_of_necs.css?body=1" for 127.0.0.1 at 2014-06-10 08:46:14 -0400
+
+
+Started GET "/assets/producto_necesitados.css?body=1" for 127.0.0.1 at 2014-06-10 08:46:14 -0400
+
+
+Started GET "/assets/producto_ofertados.css?body=1" for 127.0.0.1 at 2014-06-10 08:46:14 -0400
+
+
+Started GET "/assets/producto_rematados.css?body=1" for 127.0.0.1 at 2014-06-10 08:46:14 -0400
+
+
+Started GET "/assets/productos.css?body=1" for 127.0.0.1 at 2014-06-10 08:46:14 -0400
+
+
+Started GET "/assets/propiedadclases.css?body=1" for 127.0.0.1 at 2014-06-10 08:46:14 -0400
+
+
+Started GET "/assets/propiedads.css?body=1" for 127.0.0.1 at 2014-06-10 08:46:14 -0400
+
+
+Started GET "/assets/provincia_units.css?body=1" for 127.0.0.1 at 2014-06-10 08:46:14 -0400
+
+
+Started GET "/assets/pujas.css?body=1" for 127.0.0.1 at 2014-06-10 08:46:14 -0400
+
+
+Started GET "/assets/regions.css?body=1" for 127.0.0.1 at 2014-06-10 08:46:14 -0400
+
+
+Started GET "/assets/remates.css?body=1" for 127.0.0.1 at 2014-06-10 08:46:14 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-06-10 08:46:14 -0400
+
+
+Started GET "/assets/tipo_transaccions.css?body=1" for 127.0.0.1 at 2014-06-10 08:46:14 -0400
+
+
+Started GET "/assets/transaccions.css?body=1" for 127.0.0.1 at 2014-06-10 08:46:14 -0400
+
+
+Started GET "/assets/usuarios.css?body=1" for 127.0.0.1 at 2014-06-10 08:46:14 -0400
+
+
+Started GET "/assets/valors.css?body=1" for 127.0.0.1 at 2014-06-10 08:46:14 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-10 08:46:14 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-10 08:46:14 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-10 08:46:14 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-06-10 08:46:14 -0400
+
+
+Started GET "/assets/auditoria.js?body=1" for 127.0.0.1 at 2014-06-10 08:46:14 -0400
+
+
+Started GET "/assets/clase_units.js?body=1" for 127.0.0.1 at 2014-06-10 08:46:14 -0400
+
+
+Started GET "/assets/comisions.js?body=1" for 127.0.0.1 at 2014-06-10 08:46:14 -0400
+
+
+Started GET "/assets/compra_remates.js?body=1" for 127.0.0.1 at 2014-06-10 08:46:14 -0400
+
+
+Started GET "/assets/compra_venta_especials.js?body=1" for 127.0.0.1 at 2014-06-10 08:46:14 -0400
+
+
+Started GET "/assets/compra_venta_normals.js?body=1" for 127.0.0.1 at 2014-06-10 08:46:14 -0400
+
+
+Started GET "/assets/comunas.js?body=1" for 127.0.0.1 at 2014-06-10 08:46:14 -0400
+
+
+Started GET "/assets/condicions.js?body=1" for 127.0.0.1 at 2014-06-10 08:46:14 -0400
+
+
+Started GET "/assets/est_prod_of_necs.js?body=1" for 127.0.0.1 at 2014-06-10 08:46:14 -0400
+
+
+Started GET "/assets/estado_notificacions.js?body=1" for 127.0.0.1 at 2014-06-10 08:46:14 -0400
+
+
+Started GET "/assets/estado_remates.js?body=1" for 127.0.0.1 at 2014-06-10 08:46:14 -0400
+
+
+Started GET "/assets/ganancia_liquidas.js?body=1" for 127.0.0.1 at 2014-06-10 08:46:14 -0400
+
+
+Started GET "/assets/notificacions.js?body=1" for 127.0.0.1 at 2014-06-10 08:46:14 -0400
+
+
+Started GET "/assets/prod_of_necs.js?body=1" for 127.0.0.1 at 2014-06-10 08:46:14 -0400
+
+
+Started GET "/assets/producto_necesitados.js?body=1" for 127.0.0.1 at 2014-06-10 08:46:14 -0400
+
+
+Started GET "/assets/producto_ofertados.js?body=1" for 127.0.0.1 at 2014-06-10 08:46:14 -0400
+
+
+Started GET "/assets/producto_rematados.js?body=1" for 127.0.0.1 at 2014-06-10 08:46:14 -0400
+
+
+Started GET "/assets/productos.js?body=1" for 127.0.0.1 at 2014-06-10 08:46:14 -0400
+
+
+Started GET "/assets/propiedadclases.js?body=1" for 127.0.0.1 at 2014-06-10 08:46:14 -0400
+
+
+Started GET "/assets/propiedads.js?body=1" for 127.0.0.1 at 2014-06-10 08:46:14 -0400
+
+
+Started GET "/assets/provincia_units.js?body=1" for 127.0.0.1 at 2014-06-10 08:46:14 -0400
+
+
+Started GET "/assets/pujas.js?body=1" for 127.0.0.1 at 2014-06-10 08:46:14 -0400
+
+
+Started GET "/assets/regions.js?body=1" for 127.0.0.1 at 2014-06-10 08:46:14 -0400
+
+
+Started GET "/assets/remates.js?body=1" for 127.0.0.1 at 2014-06-10 08:46:14 -0400
+
+
+Started GET "/assets/tipo_transaccions.js?body=1" for 127.0.0.1 at 2014-06-10 08:46:14 -0400
+
+
+Started GET "/assets/transaccions.js?body=1" for 127.0.0.1 at 2014-06-10 08:46:14 -0400
+
+
+Started GET "/assets/usuarios.js?body=1" for 127.0.0.1 at 2014-06-10 08:46:14 -0400
+
+
+Started GET "/assets/valors.js?body=1" for 127.0.0.1 at 2014-06-10 08:46:14 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-10 08:46:14 -0400
+
+
+Started GET "/usuarios/new" for 127.0.0.1 at 2014-06-10 08:46:29 -0400
+Processing by UsuariosController#new as HTML
+  Rendered usuarios/_form.html.erb (70.4ms)
+  Rendered usuarios/new.html.erb within layouts/application (77.2ms)
+Completed 200 OK in 103ms (Views: 97.7ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/usuarios" for 127.0.0.1 at 2014-06-10 08:46:35 -0400
+Processing by UsuariosController#index as HTML
+  [1m[36mUsuario Load (0.4ms)[0m  [1mSELECT "usuario".* FROM "usuario"[0m
+  Rendered usuarios/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 28ms (Views: 26.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-06-10 23:21:43 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StoreController#index as HTML
+  Rendered store/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 685ms (Views: 660.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/auditoria.css?body=1" for 127.0.0.1 at 2014-06-10 23:21:44 -0400
+
+
+Started GET "/assets/clase_units.css?body=1" for 127.0.0.1 at 2014-06-10 23:21:44 -0400
+
+
+Started GET "/assets/comisions.css?body=1" for 127.0.0.1 at 2014-06-10 23:21:44 -0400
+
+
+Started GET "/assets/compra_venta_especials.css?body=1" for 127.0.0.1 at 2014-06-10 23:21:44 -0400
+
+
+Started GET "/assets/compra_remates.css?body=1" for 127.0.0.1 at 2014-06-10 23:21:44 -0400
+
+
+Started GET "/assets/compra_venta_normals.css?body=1" for 127.0.0.1 at 2014-06-10 23:21:44 -0400
+
+
+Started GET "/assets/comunas.css?body=1" for 127.0.0.1 at 2014-06-10 23:21:44 -0400
+
+
+Started GET "/assets/est_prod_of_necs.css?body=1" for 127.0.0.1 at 2014-06-10 23:21:44 -0400
+
+
+Started GET "/assets/estado_notificacions.css?body=1" for 127.0.0.1 at 2014-06-10 23:21:44 -0400
+
+
+Started GET "/assets/condicions.css?body=1" for 127.0.0.1 at 2014-06-10 23:21:44 -0400
+
+
+Started GET "/assets/estado_remates.css?body=1" for 127.0.0.1 at 2014-06-10 23:21:44 -0400
+
+
+Started GET "/assets/ganancia_liquidas.css?body=1" for 127.0.0.1 at 2014-06-10 23:21:44 -0400
+
+
+Started GET "/assets/notificacions.css?body=1" for 127.0.0.1 at 2014-06-10 23:21:44 -0400
+
+
+Started GET "/assets/prod_of_necs.css?body=1" for 127.0.0.1 at 2014-06-10 23:21:44 -0400
+
+
+Started GET "/assets/producto_necesitados.css?body=1" for 127.0.0.1 at 2014-06-10 23:21:44 -0400
+
+
+Started GET "/assets/producto_ofertados.css?body=1" for 127.0.0.1 at 2014-06-10 23:21:44 -0400
+
+
+Started GET "/assets/producto_rematados.css?body=1" for 127.0.0.1 at 2014-06-10 23:21:44 -0400
+
+
+Started GET "/assets/productos.css?body=1" for 127.0.0.1 at 2014-06-10 23:21:44 -0400
+
+
+Started GET "/assets/propiedadclases.css?body=1" for 127.0.0.1 at 2014-06-10 23:21:44 -0400
+
+
+Started GET "/assets/propiedads.css?body=1" for 127.0.0.1 at 2014-06-10 23:21:44 -0400
+
+
+Started GET "/assets/provincia_units.css?body=1" for 127.0.0.1 at 2014-06-10 23:21:44 -0400
+
+
+Started GET "/assets/pujas.css?body=1" for 127.0.0.1 at 2014-06-10 23:21:44 -0400
+
+
+Started GET "/assets/regions.css?body=1" for 127.0.0.1 at 2014-06-10 23:21:44 -0400
+
+
+Started GET "/assets/remates.css?body=1" for 127.0.0.1 at 2014-06-10 23:21:44 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-06-10 23:21:44 -0400
+
+
+Started GET "/assets/store.css?body=1" for 127.0.0.1 at 2014-06-10 23:21:44 -0400
+
+
+Started GET "/assets/tipo_transaccions.css?body=1" for 127.0.0.1 at 2014-06-10 23:21:44 -0400
+
+
+Started GET "/assets/transaccions.css?body=1" for 127.0.0.1 at 2014-06-10 23:21:44 -0400
+
+
+Started GET "/assets/usuarios.css?body=1" for 127.0.0.1 at 2014-06-10 23:21:44 -0400
+
+
+Started GET "/assets/valors.css?body=1" for 127.0.0.1 at 2014-06-10 23:21:44 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-10 23:21:44 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-10 23:21:44 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-10 23:21:44 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-06-10 23:21:44 -0400
+
+
+Started GET "/assets/auditoria.js?body=1" for 127.0.0.1 at 2014-06-10 23:21:44 -0400
+
+
+Started GET "/assets/clase_units.js?body=1" for 127.0.0.1 at 2014-06-10 23:21:44 -0400
+
+
+Started GET "/assets/comisions.js?body=1" for 127.0.0.1 at 2014-06-10 23:21:44 -0400
+
+
+Started GET "/assets/compra_remates.js?body=1" for 127.0.0.1 at 2014-06-10 23:21:44 -0400
+
+
+Started GET "/assets/compra_venta_especials.js?body=1" for 127.0.0.1 at 2014-06-10 23:21:45 -0400
+
+
+Started GET "/assets/compra_venta_normals.js?body=1" for 127.0.0.1 at 2014-06-10 23:21:45 -0400
+
+
+Started GET "/assets/comunas.js?body=1" for 127.0.0.1 at 2014-06-10 23:21:45 -0400
+
+
+Started GET "/assets/condicions.js?body=1" for 127.0.0.1 at 2014-06-10 23:21:45 -0400
+
+
+Started GET "/assets/est_prod_of_necs.js?body=1" for 127.0.0.1 at 2014-06-10 23:21:45 -0400
+
+
+Started GET "/assets/estado_notificacions.js?body=1" for 127.0.0.1 at 2014-06-10 23:21:45 -0400
+
+
+Started GET "/assets/estado_remates.js?body=1" for 127.0.0.1 at 2014-06-10 23:21:45 -0400
+
+
+Started GET "/assets/ganancia_liquidas.js?body=1" for 127.0.0.1 at 2014-06-10 23:21:45 -0400
+
+
+Started GET "/assets/notificacions.js?body=1" for 127.0.0.1 at 2014-06-10 23:21:45 -0400
+
+
+Started GET "/assets/prod_of_necs.js?body=1" for 127.0.0.1 at 2014-06-10 23:21:45 -0400
+
+
+Started GET "/assets/producto_necesitados.js?body=1" for 127.0.0.1 at 2014-06-10 23:21:45 -0400
+
+
+Started GET "/assets/producto_ofertados.js?body=1" for 127.0.0.1 at 2014-06-10 23:21:45 -0400
+
+
+Started GET "/assets/producto_rematados.js?body=1" for 127.0.0.1 at 2014-06-10 23:21:45 -0400
+
+
+Started GET "/assets/productos.js?body=1" for 127.0.0.1 at 2014-06-10 23:21:45 -0400
+
+
+Started GET "/assets/propiedadclases.js?body=1" for 127.0.0.1 at 2014-06-10 23:21:45 -0400
+
+
+Started GET "/assets/propiedads.js?body=1" for 127.0.0.1 at 2014-06-10 23:21:45 -0400
+
+
+Started GET "/assets/provincia_units.js?body=1" for 127.0.0.1 at 2014-06-10 23:21:45 -0400
+
+
+Started GET "/assets/pujas.js?body=1" for 127.0.0.1 at 2014-06-10 23:21:45 -0400
+
+
+Started GET "/assets/regions.js?body=1" for 127.0.0.1 at 2014-06-10 23:21:45 -0400
+
+
+Started GET "/assets/remates.js?body=1" for 127.0.0.1 at 2014-06-10 23:21:45 -0400
+
+
+Started GET "/assets/store.js?body=1" for 127.0.0.1 at 2014-06-10 23:21:45 -0400
+
+
+Started GET "/assets/tipo_transaccions.js?body=1" for 127.0.0.1 at 2014-06-10 23:21:45 -0400
+
+
+Started GET "/assets/transaccions.js?body=1" for 127.0.0.1 at 2014-06-10 23:21:45 -0400
+
+
+Started GET "/assets/usuarios.js?body=1" for 127.0.0.1 at 2014-06-10 23:21:45 -0400
+
+
+Started GET "/assets/valors.js?body=1" for 127.0.0.1 at 2014-06-10 23:21:45 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-10 23:21:45 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-06-10 23:26:01 -0400
+Processing by StoreController#index as HTML
+  Rendered store/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 248ms (Views: 247.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/auditoria.css?body=1" for 127.0.0.1 at 2014-06-10 23:26:02 -0400
+
+
+Started GET "/assets/bootstrap-theme.css?body=1" for 127.0.0.1 at 2014-06-10 23:26:02 -0400
+
+
+Started GET "/stylesheets/bootstrap-theme.css.map.css" for 127.0.0.1 at 2014-06-10 23:26:02 -0400
+
+ActionController::RoutingError (No route matches [GET] "/stylesheets/bootstrap-theme.css.map.css"):
+  actionpack (4.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.1) lib/rails/engine.rb:514:in `call'
+  railties (4.1.1) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (15.5ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (7.4ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (186.4ms)
+
+
+Started GET "/assets/bootstrap-theme.min.css?body=1" for 127.0.0.1 at 2014-06-10 23:26:02 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-06-10 23:26:02 -0400
+
+
+Started GET "/stylesheets/bootstrap.css.map.css" for 127.0.0.1 at 2014-06-10 23:26:02 -0400
+
+ActionController::RoutingError (No route matches [GET] "/stylesheets/bootstrap.css.map.css"):
+  actionpack (4.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.1) lib/rails/engine.rb:514:in `call'
+  railties (4.1.1) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (16.7ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.3ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (95.7ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2014-06-10 23:26:02 -0400
+
+
+Started GET "/assets/clase_units.css?body=1" for 127.0.0.1 at 2014-06-10 23:26:02 -0400
+
+
+Started GET "/assets/comisions.css?body=1" for 127.0.0.1 at 2014-06-10 23:26:02 -0400
+
+
+Started GET "/assets/compra_remates.css?body=1" for 127.0.0.1 at 2014-06-10 23:26:02 -0400
+
+
+Started GET "/assets/compra_venta_especials.css?body=1" for 127.0.0.1 at 2014-06-10 23:26:02 -0400
+
+
+Started GET "/assets/compra_venta_normals.css?body=1" for 127.0.0.1 at 2014-06-10 23:26:02 -0400
+
+
+Started GET "/assets/comunas.css?body=1" for 127.0.0.1 at 2014-06-10 23:26:02 -0400
+
+
+Started GET "/assets/condicions.css?body=1" for 127.0.0.1 at 2014-06-10 23:26:02 -0400
+
+
+Started GET "/assets/est_prod_of_necs.css?body=1" for 127.0.0.1 at 2014-06-10 23:26:02 -0400
+
+
+Started GET "/assets/estado_notificacions.css?body=1" for 127.0.0.1 at 2014-06-10 23:26:02 -0400
+
+
+Started GET "/assets/estado_remates.css?body=1" for 127.0.0.1 at 2014-06-10 23:26:02 -0400
+
+
+Started GET "/assets/ganancia_liquidas.css?body=1" for 127.0.0.1 at 2014-06-10 23:26:02 -0400
+
+
+Started GET "/assets/notificacions.css?body=1" for 127.0.0.1 at 2014-06-10 23:26:02 -0400
+
+
+Started GET "/assets/prod_of_necs.css?body=1" for 127.0.0.1 at 2014-06-10 23:26:02 -0400
+
+
+Started GET "/assets/producto_necesitados.css?body=1" for 127.0.0.1 at 2014-06-10 23:26:02 -0400
+
+
+Started GET "/assets/producto_ofertados.css?body=1" for 127.0.0.1 at 2014-06-10 23:26:02 -0400
+
+
+Started GET "/assets/producto_rematados.css?body=1" for 127.0.0.1 at 2014-06-10 23:26:02 -0400
+
+
+Started GET "/assets/productos.css?body=1" for 127.0.0.1 at 2014-06-10 23:26:02 -0400
+
+
+Started GET "/assets/propiedadclases.css?body=1" for 127.0.0.1 at 2014-06-10 23:26:02 -0400
+
+
+Started GET "/assets/propiedads.css?body=1" for 127.0.0.1 at 2014-06-10 23:26:02 -0400
+
+
+Started GET "/assets/provincia_units.css?body=1" for 127.0.0.1 at 2014-06-10 23:26:02 -0400
+
+
+Started GET "/assets/pujas.css?body=1" for 127.0.0.1 at 2014-06-10 23:26:02 -0400
+
+
+Started GET "/assets/regions.css?body=1" for 127.0.0.1 at 2014-06-10 23:26:02 -0400
+
+
+Started GET "/assets/remates.css?body=1" for 127.0.0.1 at 2014-06-10 23:26:02 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-06-10 23:26:02 -0400
+
+
+Started GET "/assets/store.css?body=1" for 127.0.0.1 at 2014-06-10 23:26:02 -0400
+
+
+Started GET "/assets/tipo_transaccions.css?body=1" for 127.0.0.1 at 2014-06-10 23:26:02 -0400
+
+
+Started GET "/assets/transaccions.css?body=1" for 127.0.0.1 at 2014-06-10 23:26:02 -0400
+
+
+Started GET "/assets/usuarios.css?body=1" for 127.0.0.1 at 2014-06-10 23:26:02 -0400
+
+
+Started GET "/assets/valors.css?body=1" for 127.0.0.1 at 2014-06-10 23:26:02 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-10 23:26:02 -0400
+
+
+Started GET "/css/bootstrap.min.css" for 127.0.0.1 at 2014-06-10 23:26:03 -0400
+
+ActionController::RoutingError (No route matches [GET] "/css/bootstrap.min.css"):
+  actionpack (4.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.1) lib/rails/engine.rb:514:in `call'
+  railties (4.1.1) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (15.5ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.1ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (140.3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-10 23:26:03 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-10 23:26:03 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-06-10 23:26:03 -0400
+
+
+Started GET "/assets/auditoria.js?body=1" for 127.0.0.1 at 2014-06-10 23:26:03 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-06-10 23:26:03 -0400
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-06-10 23:26:03 -0400
+
+
+Started GET "/assets/clase_units.js?body=1" for 127.0.0.1 at 2014-06-10 23:26:03 -0400
+
+
+Started GET "/assets/comisions.js?body=1" for 127.0.0.1 at 2014-06-10 23:26:03 -0400
+
+
+Started GET "/assets/compra_remates.js?body=1" for 127.0.0.1 at 2014-06-10 23:26:03 -0400
+
+
+Started GET "/assets/compra_venta_especials.js?body=1" for 127.0.0.1 at 2014-06-10 23:26:03 -0400
+
+
+Started GET "/assets/compra_venta_normals.js?body=1" for 127.0.0.1 at 2014-06-10 23:26:03 -0400
+
+
+Started GET "/assets/comunas.js?body=1" for 127.0.0.1 at 2014-06-10 23:26:03 -0400
+
+
+Started GET "/assets/condicions.js?body=1" for 127.0.0.1 at 2014-06-10 23:26:03 -0400
+
+
+Started GET "/assets/est_prod_of_necs.js?body=1" for 127.0.0.1 at 2014-06-10 23:26:03 -0400
+
+
+Started GET "/assets/estado_notificacions.js?body=1" for 127.0.0.1 at 2014-06-10 23:26:03 -0400
+
+
+Started GET "/assets/estado_remates.js?body=1" for 127.0.0.1 at 2014-06-10 23:26:03 -0400
+
+
+Started GET "/assets/ganancia_liquidas.js?body=1" for 127.0.0.1 at 2014-06-10 23:26:03 -0400
+
+
+Started GET "/assets/notificacions.js?body=1" for 127.0.0.1 at 2014-06-10 23:26:03 -0400
+
+
+Started GET "/assets/prod_of_necs.js?body=1" for 127.0.0.1 at 2014-06-10 23:26:03 -0400
+
+
+Started GET "/assets/producto_necesitados.js?body=1" for 127.0.0.1 at 2014-06-10 23:26:03 -0400
+
+
+Started GET "/assets/producto_ofertados.js?body=1" for 127.0.0.1 at 2014-06-10 23:26:03 -0400
+
+
+Started GET "/assets/producto_rematados.js?body=1" for 127.0.0.1 at 2014-06-10 23:26:03 -0400
+
+
+Started GET "/assets/productos.js?body=1" for 127.0.0.1 at 2014-06-10 23:26:03 -0400
+
+
+Started GET "/assets/propiedadclases.js?body=1" for 127.0.0.1 at 2014-06-10 23:26:03 -0400
+
+
+Started GET "/assets/propiedads.js?body=1" for 127.0.0.1 at 2014-06-10 23:26:03 -0400
+
+
+Started GET "/assets/provincia_units.js?body=1" for 127.0.0.1 at 2014-06-10 23:26:03 -0400
+
+
+Started GET "/assets/pujas.js?body=1" for 127.0.0.1 at 2014-06-10 23:26:03 -0400
+
+
+Started GET "/assets/regions.js?body=1" for 127.0.0.1 at 2014-06-10 23:26:03 -0400
+
+
+Started GET "/assets/remates.js?body=1" for 127.0.0.1 at 2014-06-10 23:26:03 -0400
+
+
+Started GET "/assets/store.js?body=1" for 127.0.0.1 at 2014-06-10 23:26:03 -0400
+
+
+Started GET "/assets/tipo_transaccions.js?body=1" for 127.0.0.1 at 2014-06-10 23:26:03 -0400
+
+
+Started GET "/assets/transaccions.js?body=1" for 127.0.0.1 at 2014-06-10 23:26:03 -0400
+
+
+Started GET "/assets/usuarios.js?body=1" for 127.0.0.1 at 2014-06-10 23:26:03 -0400
+
+
+Started GET "/assets/valors.js?body=1" for 127.0.0.1 at 2014-06-10 23:26:03 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-10 23:26:03 -0400
+
+
+Started GET "/js/bootstrap.min.js" for 127.0.0.1 at 2014-06-10 23:26:03 -0400
+
+ActionController::RoutingError (No route matches [GET] "/js/bootstrap.min.js"):
+  actionpack (4.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.1) lib/rails/engine.rb:514:in `call'
+  railties (4.1.1) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (15.9ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (120.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-06-10 23:29:13 -0400
+Processing by StoreController#index as HTML
+  Rendered store/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 28ms (Views: 27.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-06-10 23:29:13 -0400
+
+
+Started GET "/assets/bootstrap-theme.css?body=1" for 127.0.0.1 at 2014-06-10 23:29:13 -0400
+
+
+Started GET "/assets/auditoria.css?body=1" for 127.0.0.1 at 2014-06-10 23:29:13 -0400
+
+
+Started GET "/stylesheets/bootstrap-theme.css.map.css" for 127.0.0.1 at 2014-06-10 23:29:13 -0400
+
+ActionController::RoutingError (No route matches [GET] "/stylesheets/bootstrap-theme.css.map.css"):
+  actionpack (4.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.1) lib/rails/engine.rb:514:in `call'
+  railties (4.1.1) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (64.2ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.5ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (147.9ms)
+
+
+Started GET "/assets/bootstrap-theme.min.css?body=1" for 127.0.0.1 at 2014-06-10 23:29:13 -0400
+
+
+Started GET "/stylesheets/bootstrap.css.map.css" for 127.0.0.1 at 2014-06-10 23:29:13 -0400
+
+ActionController::RoutingError (No route matches [GET] "/stylesheets/bootstrap.css.map.css"):
+  actionpack (4.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.1) lib/rails/engine.rb:514:in `call'
+  railties (4.1.1) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (16.1ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.1ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (94.4ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2014-06-10 23:29:13 -0400
+
+
+Started GET "/assets/clase_units.css?body=1" for 127.0.0.1 at 2014-06-10 23:29:13 -0400
+
+
+Started GET "/assets/comisions.css?body=1" for 127.0.0.1 at 2014-06-10 23:29:13 -0400
+
+
+Started GET "/assets/compra_remates.css?body=1" for 127.0.0.1 at 2014-06-10 23:29:13 -0400
+
+
+Started GET "/assets/compra_venta_especials.css?body=1" for 127.0.0.1 at 2014-06-10 23:29:13 -0400
+
+
+Started GET "/assets/compra_venta_normals.css?body=1" for 127.0.0.1 at 2014-06-10 23:29:13 -0400
+
+
+Started GET "/assets/comunas.css?body=1" for 127.0.0.1 at 2014-06-10 23:29:13 -0400
+
+
+Started GET "/assets/condicions.css?body=1" for 127.0.0.1 at 2014-06-10 23:29:13 -0400
+
+
+Started GET "/assets/est_prod_of_necs.css?body=1" for 127.0.0.1 at 2014-06-10 23:29:13 -0400
+
+
+Started GET "/assets/estado_notificacions.css?body=1" for 127.0.0.1 at 2014-06-10 23:29:13 -0400
+
+
+Started GET "/assets/estado_remates.css?body=1" for 127.0.0.1 at 2014-06-10 23:29:13 -0400
+
+
+Started GET "/assets/ganancia_liquidas.css?body=1" for 127.0.0.1 at 2014-06-10 23:29:13 -0400
+
+
+Started GET "/assets/notificacions.css?body=1" for 127.0.0.1 at 2014-06-10 23:29:13 -0400
+
+
+Started GET "/assets/prod_of_necs.css?body=1" for 127.0.0.1 at 2014-06-10 23:29:13 -0400
+
+
+Started GET "/assets/producto_necesitados.css?body=1" for 127.0.0.1 at 2014-06-10 23:29:13 -0400
+
+
+Started GET "/assets/producto_ofertados.css?body=1" for 127.0.0.1 at 2014-06-10 23:29:13 -0400
+
+
+Started GET "/assets/producto_rematados.css?body=1" for 127.0.0.1 at 2014-06-10 23:29:13 -0400
+
+
+Started GET "/assets/productos.css?body=1" for 127.0.0.1 at 2014-06-10 23:29:13 -0400
+
+
+Started GET "/assets/propiedadclases.css?body=1" for 127.0.0.1 at 2014-06-10 23:29:13 -0400
+
+
+Started GET "/assets/propiedads.css?body=1" for 127.0.0.1 at 2014-06-10 23:29:13 -0400
+
+
+Started GET "/assets/provincia_units.css?body=1" for 127.0.0.1 at 2014-06-10 23:29:13 -0400
+
+
+Started GET "/assets/pujas.css?body=1" for 127.0.0.1 at 2014-06-10 23:29:13 -0400
+
+
+Started GET "/assets/regions.css?body=1" for 127.0.0.1 at 2014-06-10 23:29:13 -0400
+
+
+Started GET "/assets/remates.css?body=1" for 127.0.0.1 at 2014-06-10 23:29:13 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-06-10 23:29:13 -0400
+
+
+Started GET "/assets/store.css?body=1" for 127.0.0.1 at 2014-06-10 23:29:13 -0400
+
+
+Started GET "/assets/tipo_transaccions.css?body=1" for 127.0.0.1 at 2014-06-10 23:29:13 -0400
+
+
+Started GET "/assets/transaccions.css?body=1" for 127.0.0.1 at 2014-06-10 23:29:13 -0400
+
+
+Started GET "/assets/usuarios.css?body=1" for 127.0.0.1 at 2014-06-10 23:29:13 -0400
+
+
+Started GET "/assets/valors.css?body=1" for 127.0.0.1 at 2014-06-10 23:29:13 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-10 23:29:13 -0400
+
+
+Started GET "/dist/css/bootstrap.min.css" for 127.0.0.1 at 2014-06-10 23:29:13 -0400
+
+ActionController::RoutingError (No route matches [GET] "/dist/css/bootstrap.min.css"):
+  actionpack (4.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.1) lib/rails/engine.rb:514:in `call'
+  railties (4.1.1) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (20.6ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (98.4ms)
+
+
+Started GET "/jumbotron.css" for 127.0.0.1 at 2014-06-10 23:29:14 -0400
+
+ActionController::RoutingError (No route matches [GET] "/jumbotron.css"):
+  actionpack (4.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.1) lib/rails/engine.rb:514:in `call'
+  railties (4.1.1) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (17.0ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (43.3ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (168.5ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-10 23:29:14 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-10 23:29:14 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-06-10 23:29:14 -0400
+
+
+Started GET "/assets/auditoria.js?body=1" for 127.0.0.1 at 2014-06-10 23:29:14 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-06-10 23:29:14 -0400
+
+
+Started GET "/assets/clase_units.js?body=1" for 127.0.0.1 at 2014-06-10 23:29:14 -0400
+
+
+Started GET "/assets/comisions.js?body=1" for 127.0.0.1 at 2014-06-10 23:29:14 -0400
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-06-10 23:29:14 -0400
+
+
+Started GET "/assets/compra_remates.js?body=1" for 127.0.0.1 at 2014-06-10 23:29:14 -0400
+
+
+Started GET "/assets/compra_venta_especials.js?body=1" for 127.0.0.1 at 2014-06-10 23:29:14 -0400
+
+
+Started GET "/assets/compra_venta_normals.js?body=1" for 127.0.0.1 at 2014-06-10 23:29:14 -0400
+
+
+Started GET "/assets/comunas.js?body=1" for 127.0.0.1 at 2014-06-10 23:29:14 -0400
+
+
+Started GET "/assets/condicions.js?body=1" for 127.0.0.1 at 2014-06-10 23:29:14 -0400
+
+
+Started GET "/assets/est_prod_of_necs.js?body=1" for 127.0.0.1 at 2014-06-10 23:29:14 -0400
+
+
+Started GET "/assets/estado_notificacions.js?body=1" for 127.0.0.1 at 2014-06-10 23:29:14 -0400
+
+
+Started GET "/assets/estado_remates.js?body=1" for 127.0.0.1 at 2014-06-10 23:29:14 -0400
+
+
+Started GET "/assets/ganancia_liquidas.js?body=1" for 127.0.0.1 at 2014-06-10 23:29:14 -0400
+
+
+Started GET "/assets/notificacions.js?body=1" for 127.0.0.1 at 2014-06-10 23:29:14 -0400
+
+
+Started GET "/assets/prod_of_necs.js?body=1" for 127.0.0.1 at 2014-06-10 23:29:14 -0400
+
+
+Started GET "/assets/producto_necesitados.js?body=1" for 127.0.0.1 at 2014-06-10 23:29:14 -0400
+
+
+Started GET "/assets/producto_ofertados.js?body=1" for 127.0.0.1 at 2014-06-10 23:29:14 -0400
+
+
+Started GET "/assets/producto_rematados.js?body=1" for 127.0.0.1 at 2014-06-10 23:29:14 -0400
+
+
+Started GET "/assets/productos.js?body=1" for 127.0.0.1 at 2014-06-10 23:29:14 -0400
+
+
+Started GET "/assets/propiedadclases.js?body=1" for 127.0.0.1 at 2014-06-10 23:29:14 -0400
+
+
+Started GET "/assets/propiedads.js?body=1" for 127.0.0.1 at 2014-06-10 23:29:14 -0400
+
+
+Started GET "/assets/provincia_units.js?body=1" for 127.0.0.1 at 2014-06-10 23:29:14 -0400
+
+
+Started GET "/assets/pujas.js?body=1" for 127.0.0.1 at 2014-06-10 23:29:14 -0400
+
+
+Started GET "/assets/regions.js?body=1" for 127.0.0.1 at 2014-06-10 23:29:14 -0400
+
+
+Started GET "/assets/remates.js?body=1" for 127.0.0.1 at 2014-06-10 23:29:14 -0400
+
+
+Started GET "/assets/store.js?body=1" for 127.0.0.1 at 2014-06-10 23:29:14 -0400
+
+
+Started GET "/assets/tipo_transaccions.js?body=1" for 127.0.0.1 at 2014-06-10 23:29:14 -0400
+
+
+Started GET "/assets/transaccions.js?body=1" for 127.0.0.1 at 2014-06-10 23:29:14 -0400
+
+
+Started GET "/assets/usuarios.js?body=1" for 127.0.0.1 at 2014-06-10 23:29:14 -0400
+
+
+Started GET "/assets/valors.js?body=1" for 127.0.0.1 at 2014-06-10 23:29:14 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-10 23:29:14 -0400
+
+
+Started GET "/dist/js/bootstrap.min.js" for 127.0.0.1 at 2014-06-10 23:29:14 -0400
+
+ActionController::RoutingError (No route matches [GET] "/dist/js/bootstrap.min.js"):
+  actionpack (4.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.1) lib/rails/engine.rb:514:in `call'
+  railties (4.1.1) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (17.7ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.4ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (140.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-06-10 23:30:10 -0400
+Processing by StoreController#index as HTML
+  Rendered store/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 27ms (Views: 26.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/auditoria.css?body=1" for 127.0.0.1 at 2014-06-10 23:30:10 -0400
+
+
+Started GET "/assets/bootstrap-theme.css?body=1" for 127.0.0.1 at 2014-06-10 23:30:10 -0400
+
+
+Started GET "/stylesheets/bootstrap.css.map.css" for 127.0.0.1 at 2014-06-10 23:30:10 -0400
+
+ActionController::RoutingError (No route matches [GET] "/stylesheets/bootstrap.css.map.css"):
+  actionpack (4.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.1) lib/rails/engine.rb:514:in `call'
+  railties (4.1.1) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (15.2ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.8ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (96.4ms)
+
+
+Started GET "/stylesheets/bootstrap-theme.css.map.css" for 127.0.0.1 at 2014-06-10 23:30:10 -0400
+
+ActionController::RoutingError (No route matches [GET] "/stylesheets/bootstrap-theme.css.map.css"):
+  actionpack (4.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.1) lib/rails/engine.rb:514:in `call'
+  railties (4.1.1) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (17.4ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.1ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (168.3ms)
+
+
+Started GET "/assets/bootstrap-theme.min.css?body=1" for 127.0.0.1 at 2014-06-10 23:30:10 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-06-10 23:30:10 -0400
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2014-06-10 23:30:10 -0400
+
+
+Started GET "/assets/clase_units.css?body=1" for 127.0.0.1 at 2014-06-10 23:30:10 -0400
+
+
+Started GET "/assets/comisions.css?body=1" for 127.0.0.1 at 2014-06-10 23:30:10 -0400
+
+
+Started GET "/assets/compra_remates.css?body=1" for 127.0.0.1 at 2014-06-10 23:30:10 -0400
+
+
+Started GET "/assets/compra_venta_especials.css?body=1" for 127.0.0.1 at 2014-06-10 23:30:10 -0400
+
+
+Started GET "/assets/compra_venta_normals.css?body=1" for 127.0.0.1 at 2014-06-10 23:30:10 -0400
+
+
+Started GET "/assets/comunas.css?body=1" for 127.0.0.1 at 2014-06-10 23:30:10 -0400
+
+
+Started GET "/assets/condicions.css?body=1" for 127.0.0.1 at 2014-06-10 23:30:10 -0400
+
+
+Started GET "/assets/est_prod_of_necs.css?body=1" for 127.0.0.1 at 2014-06-10 23:30:10 -0400
+
+
+Started GET "/assets/estado_notificacions.css?body=1" for 127.0.0.1 at 2014-06-10 23:30:10 -0400
+
+
+Started GET "/assets/estado_remates.css?body=1" for 127.0.0.1 at 2014-06-10 23:30:10 -0400
+
+
+Started GET "/assets/ganancia_liquidas.css?body=1" for 127.0.0.1 at 2014-06-10 23:30:10 -0400
+
+
+Started GET "/assets/notificacions.css?body=1" for 127.0.0.1 at 2014-06-10 23:30:10 -0400
+
+
+Started GET "/assets/prod_of_necs.css?body=1" for 127.0.0.1 at 2014-06-10 23:30:10 -0400
+
+
+Started GET "/assets/producto_necesitados.css?body=1" for 127.0.0.1 at 2014-06-10 23:30:10 -0400
+
+
+Started GET "/assets/producto_ofertados.css?body=1" for 127.0.0.1 at 2014-06-10 23:30:10 -0400
+
+
+Started GET "/assets/producto_rematados.css?body=1" for 127.0.0.1 at 2014-06-10 23:30:10 -0400
+
+
+Started GET "/assets/productos.css?body=1" for 127.0.0.1 at 2014-06-10 23:30:10 -0400
+
+
+Started GET "/assets/propiedadclases.css?body=1" for 127.0.0.1 at 2014-06-10 23:30:10 -0400
+
+
+Started GET "/assets/propiedads.css?body=1" for 127.0.0.1 at 2014-06-10 23:30:10 -0400
+
+
+Started GET "/assets/provincia_units.css?body=1" for 127.0.0.1 at 2014-06-10 23:30:10 -0400
+
+
+Started GET "/assets/pujas.css?body=1" for 127.0.0.1 at 2014-06-10 23:30:10 -0400
+
+
+Started GET "/assets/regions.css?body=1" for 127.0.0.1 at 2014-06-10 23:30:10 -0400
+
+
+Started GET "/assets/remates.css?body=1" for 127.0.0.1 at 2014-06-10 23:30:10 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-06-10 23:30:10 -0400
+
+
+Started GET "/assets/store.css?body=1" for 127.0.0.1 at 2014-06-10 23:30:10 -0400
+
+
+Started GET "/assets/tipo_transaccions.css?body=1" for 127.0.0.1 at 2014-06-10 23:30:10 -0400
+
+
+Started GET "/assets/transaccions.css?body=1" for 127.0.0.1 at 2014-06-10 23:30:10 -0400
+
+
+Started GET "/assets/usuarios.css?body=1" for 127.0.0.1 at 2014-06-10 23:30:10 -0400
+
+
+Started GET "/assets/valors.css?body=1" for 127.0.0.1 at 2014-06-10 23:30:10 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-10 23:30:10 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-10 23:30:10 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-10 23:30:10 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-06-10 23:30:10 -0400
+
+
+Started GET "/assets/auditoria.js?body=1" for 127.0.0.1 at 2014-06-10 23:30:10 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-06-10 23:30:10 -0400
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-06-10 23:30:10 -0400
+
+
+Started GET "/assets/clase_units.js?body=1" for 127.0.0.1 at 2014-06-10 23:30:10 -0400
+
+
+Started GET "/assets/comisions.js?body=1" for 127.0.0.1 at 2014-06-10 23:30:10 -0400
+
+
+Started GET "/assets/compra_remates.js?body=1" for 127.0.0.1 at 2014-06-10 23:30:11 -0400
+
+
+Started GET "/assets/compra_venta_especials.js?body=1" for 127.0.0.1 at 2014-06-10 23:30:11 -0400
+
+
+Started GET "/assets/compra_venta_normals.js?body=1" for 127.0.0.1 at 2014-06-10 23:30:11 -0400
+
+
+Started GET "/assets/comunas.js?body=1" for 127.0.0.1 at 2014-06-10 23:30:11 -0400
+
+
+Started GET "/assets/condicions.js?body=1" for 127.0.0.1 at 2014-06-10 23:30:11 -0400
+
+
+Started GET "/assets/est_prod_of_necs.js?body=1" for 127.0.0.1 at 2014-06-10 23:30:11 -0400
+
+
+Started GET "/assets/estado_notificacions.js?body=1" for 127.0.0.1 at 2014-06-10 23:30:11 -0400
+
+
+Started GET "/assets/estado_remates.js?body=1" for 127.0.0.1 at 2014-06-10 23:30:11 -0400
+
+
+Started GET "/assets/ganancia_liquidas.js?body=1" for 127.0.0.1 at 2014-06-10 23:30:11 -0400
+
+
+Started GET "/assets/notificacions.js?body=1" for 127.0.0.1 at 2014-06-10 23:30:11 -0400
+
+
+Started GET "/assets/prod_of_necs.js?body=1" for 127.0.0.1 at 2014-06-10 23:30:11 -0400
+
+
+Started GET "/assets/producto_necesitados.js?body=1" for 127.0.0.1 at 2014-06-10 23:30:11 -0400
+
+
+Started GET "/assets/producto_ofertados.js?body=1" for 127.0.0.1 at 2014-06-10 23:30:11 -0400
+
+
+Started GET "/assets/producto_rematados.js?body=1" for 127.0.0.1 at 2014-06-10 23:30:11 -0400
+
+
+Started GET "/assets/productos.js?body=1" for 127.0.0.1 at 2014-06-10 23:30:11 -0400
+
+
+Started GET "/assets/propiedadclases.js?body=1" for 127.0.0.1 at 2014-06-10 23:30:11 -0400
+
+
+Started GET "/assets/propiedads.js?body=1" for 127.0.0.1 at 2014-06-10 23:30:11 -0400
+
+
+Started GET "/assets/provincia_units.js?body=1" for 127.0.0.1 at 2014-06-10 23:30:11 -0400
+
+
+Started GET "/assets/pujas.js?body=1" for 127.0.0.1 at 2014-06-10 23:30:11 -0400
+
+
+Started GET "/assets/regions.js?body=1" for 127.0.0.1 at 2014-06-10 23:30:11 -0400
+
+
+Started GET "/assets/remates.js?body=1" for 127.0.0.1 at 2014-06-10 23:30:11 -0400
+
+
+Started GET "/assets/store.js?body=1" for 127.0.0.1 at 2014-06-10 23:30:11 -0400
+
+
+Started GET "/assets/tipo_transaccions.js?body=1" for 127.0.0.1 at 2014-06-10 23:30:11 -0400
+
+
+Started GET "/assets/transaccions.js?body=1" for 127.0.0.1 at 2014-06-10 23:30:11 -0400
+
+
+Started GET "/assets/usuarios.js?body=1" for 127.0.0.1 at 2014-06-10 23:30:11 -0400
+
+
+Started GET "/assets/valors.js?body=1" for 127.0.0.1 at 2014-06-10 23:30:11 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-10 23:30:11 -0400
