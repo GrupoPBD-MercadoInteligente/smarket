@@ -10,7 +10,6 @@
     <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
     <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
     <title>Jumbotron Template for Bootstrap</title>
-
     <!-- Bootstrap core CSS -->
     <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -26,11 +25,10 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-
   <body>
 
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container">
+      <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="sr-only">Toggle navigation</span>
@@ -40,6 +38,7 @@
           </button>
             <a class="navbar-brand" href="#">Inicio</a>
         </div>
+        
         <div class="navbar-collapse collapse">
           <form class="navbar-form navbar-right" role="form">
             <div class="form-group">
@@ -54,46 +53,45 @@
       </div>
     </div>
 
-    <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
         <h1>Smarket Jumbotron</h1>
         <br>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, quod deserunt modi ab voluptatibus explicabo nesciunt error voluptates accusamus quos qui inventore molestias! Odio, architecto, ipsum delectus qui voluptates eveniet.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, quod deserunt modi ab voluptatibus explicabo nesciunt error voluptates accusamus quos qui inventore molestias! Odio, architecto, ipsum delectus qui voluptates eveniet.</p></br>
         <p><a class="btn btn-primary btn-lg" role="button">Boton test &raquo;</a></p>
       </div>
     </div>
 
-        <!-- Marketing messaging and featurettes
-    ================================================== -->
-    <!-- Wrap the rest of the page in another container to center all the content. -->
-
     <div class="container marketing">
-
-      <!-- Three columns of text below the carousel -->
       <div class="row">
         <div class="col-lg-4">
-          <img class="img-circle" data-src="holder.js/140x140" alt="Generic placeholder image">
-          <h2>Paso 1</h2>
+          <div class="center">
+            <%= image_tag("smarket.png", :class => "style_image") %>
+            <h2>Paso 1</h2>
+          </div>
           <p>La idea es poner lo primero que debes hacer para comprar algo :B. El botón talves está demas</p>
           <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
+        
         <div class="col-lg-4">
-          <img class="img-circle" data-src="holder.js/140x140" alt="Generic placeholder image">
-          <h2>Paso 2</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, ad, consequatur, animi eligendi tenetur ex itaque eaque quis quod quasi cum totam voluptate ipsum atque odio molestias nesciunt libero ab.</p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+            <div class="center">
+              <%= image_tag("smarket.png", :class => "style_image") %>
+              <h2>Paso 2</h2>
+            </div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, ad, consequatur, animi eligendi tenetur ex itaque eaque quis quod quasi cum totam voluptate ipsum atque odio molestias nesciunt libero ab.</p>
+            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
+        
         <div class="col-lg-4">
-          <img class="img-circle" data-src="holder.js/140x140" alt="Generic placeholder image">
-          <h2>Paso 3</h2>
+          <div class="center">
+            <%= image_tag("smarket.png", :class => "style_image") %>
+            <h2>Paso 3</h2>
+          </div>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos, ullam, reprehenderit, fuga soluta veniam eaque assumenda eligendi libero neque molestiae beatae cum natus in magnam tempore excepturi nulla ipsam laudantium.</p>
           <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
       </div><!-- /.row -->
-
-
-
+    </div>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
