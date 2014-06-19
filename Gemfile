@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
-
+#fotos
+gem 'carrierwave'
 
 #Twitter Bootstrap gems
 gem "therubyracer"

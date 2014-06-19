@@ -11,67 +11,78 @@
     </div>
   <% end %>
 
+<div class="row">
+  <div class="col-md-4">
+<div class="panel panel-primary">
+  <div class="panel-heading"><center>Usuarios</center></div>
+  <center>
   <div class="field">
-    <%= f.label :usuario_id %><br>
+    <%= f.label :usuario_id %>
     <%= f.text_field :usuario_id %>
   </div>
   <div class="field">
-    <%= f.label :comuna_id %><br>
+    <%= f.label :comuna_id %>
     <%= f.text_field :comuna_id %>
   </div>
   <div class="field">
-    <%= f.label :usuario_nombre %><br>
+    <%= f.label :usuario_nombre %>
     <%= f.text_field :usuario_nombre %>
   </div>
   <div class="field">
-    <%= f.label :usuario_apellidopat %><br>
+    <%= f.label :usuario_apellidopat %>
     <%= f.text_field :usuario_apellidopat %>
   </div>
   <div class="field">
-    <%= f.label :usuario_apellidomat %><br>
+    <%= f.label :usuario_apellidomat %>
     <%= f.text_field :usuario_apellidomat %>
   </div>
   <div class="field">
-    <%= f.label :usuario_rut %><br>
+    <%= f.label :usuario_rut %>
     <%= f.text_field :usuario_rut %>
   </div>
   <div class="field">
-    <%= f.label :usuario_e_mail %><br>
+    <%= f.label :usuario_e_mail %>
     <%= f.text_field :usuario_e_mail %>
   </div>
   <div class="field">
-    <%= f.label :usuario_nombre_usuario %><br>
+    <%= f.label :usuario_nombre_usuario %>
     <%= f.text_field :usuario_nombre_usuario %>
   </div>
   <div class="field">
-    <%= f.label :usuario_contrasena %><br>
+    <%= f.label :usuario_contrasena %>
     <%= f.password_field :usuario_contrasena %>
   </div>
   <div class="field">
-    <%= f.label :usuario_vip %><br>
+    <%= f.label :usuario_vip %>
     <%= f.check_box :usuario_vip %>
   </div>
   <div class="field">
-    <%= f.label :usuario_calle %><br>
+    <%= f.label :usuario_calle %>
     <%= f.number_field :usuario_calle %>
   </div>
   <div class="field">
-    <%= f.label :usuario_numero_calle %><br>
+    <%= f.label :usuario_numero_calle %>
     <%= f.text_field :usuario_numero_calle %>
   </div>
   <div class="field">
-    <%= f.label :usuario_villa %><br>
+    <%= f.label :usuario_villa %>
     <%= f.text_field :usuario_villa %>
   </div>
   <div class="field">
-    <%= f.label :usuario_numero_depto %><br>
+    <%= f.label :usuario_numero_depto %>
     <%= f.number_field :usuario_numero_depto %>
   </div>
   <div class="field">
-    <%= f.label :usuario_bloque %><br>
+    <%= f.label :usuario_bloque %>
     <%= f.number_field :usuario_bloque %>
   </div>
+  <br>
   <div class="actions">
     <%= f.submit(:class  => "btn btn-primary") %>
   </div>
+  <br>
+</center>
+</div>
+</div>
+</div>
 <% end %>

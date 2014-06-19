@@ -4,5 +4,6 @@ class ProductoOfertado < ActiveRecord::Base
   belongs_to :producto
   belongs_to :producto_of
   belongs_to :usuario
+  mount_uploader :picture, PictureUploader
 end
 

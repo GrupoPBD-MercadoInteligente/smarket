@@ -30,5 +30,10 @@
   <%= @producto_ofertado.producto_of_fecha_publicacion %>
 </p>
 
+<p>
+  <strong>Producto of picture</strong>
+  <%= image_tag(@producto_ofertado.picture_url, :width => 600) if @producto_ofertado.picture.present? %>
+</p>
+
 <%= link_to 'Edit', edit_producto_ofertado_path(@producto_ofertado) %> |
 <%= link_to 'Back', producto_ofertados_path %>

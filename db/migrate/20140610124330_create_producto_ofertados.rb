@@ -7,6 +7,7 @@ class CreateProductoOfertados < ActiveRecord::Migration
       t.integer :producto_of_cantidad
       t.integer :producto_of_precio_unitario
       t.date :producto_of_fecha_publicacion
+      t.string :picture
 
       t.timestamps
     end

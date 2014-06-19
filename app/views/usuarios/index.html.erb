@@ -1,23 +1,17 @@
-<h1>Listing usuarios</h1>
-
-<table>
+<div class="panel panel-primary">
+  <div class="panel-heading">Usuarios</div>
+<table class="table">
   <thead>
     <tr>
       <th>Usuario</th>
-      <th>Comuna</th>
-      <th>Usuario nombre</th>
-      <th>Usuario apellidopat</th>
-      <th>Usuario apellidomat</th>
-      <th>Usuario rut</th>
-      <th>Usuario e mail</th>
-      <th>Usuario nombre usuario</th>
-      <th>Usuario contrasena</th>
-      <th>Usuario vip</th>
-      <th>Usuario calle</th>
-      <th>Usuario numero calle</th>
-      <th>Usuario villa</th>
-      <th>Usuario numero depto</th>
-      <th>Usuario bloque</th>
+      <th>Username</th>
+      <th>Contraseña</th>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Apellido</th>
+      <th>Rut</th>
+      <th>email</th>
+      <th>VIP</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -26,20 +20,14 @@
     <% @usuarios.each do |usuario| %>
       <tr>
         <td><%= usuario.usuario %></td>
-        <td><%= usuario.comuna %></td>
+        <td><%= usuario.usuario_nombre_usuario %></td>
+        <td><%= usuario.usuario_contrasena %></td>
         <td><%= usuario.usuario_nombre %></td>
         <td><%= usuario.usuario_apellidopat %></td>
         <td><%= usuario.usuario_apellidomat %></td>
         <td><%= usuario.usuario_rut %></td>
         <td><%= usuario.usuario_e_mail %></td>
-        <td><%= usuario.usuario_nombre_usuario %></td>
-        <td><%= usuario.usuario_contrasena %></td>
         <td><%= usuario.usuario_vip %></td>
-        <td><%= usuario.usuario_calle %></td>
-        <td><%= usuario.usuario_numero_calle %></td>
-        <td><%= usuario.usuario_villa %></td>
-        <td><%= usuario.usuario_numero_depto %></td>
-        <td><%= usuario.usuario_bloque %></td>
         <td><%= link_to 'Show', usuario %></td>
         <td><%= link_to 'Edit', edit_usuario_path(usuario) %></td>
         <td><%= link_to 'Destroy', usuario, method: :delete, data: { confirm: 'Are you sure?' } %></td>

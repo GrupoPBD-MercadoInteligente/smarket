@@ -31,23 +31,23 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Productos<b class="caret"></b></a>
                 <ul class="dropdown-menu">
                   <li>
-                    <%= link_to "Ofertas" %>
+                    <%= link_to "Ofertas", producto_ofertados_path %>
                   </li>
                   <li>
-                    <%= link_to "Necesidades" %> 
+                    <%= link_to "Necesidades", producto_necesitados_path %> 
                   </li>
                 </ul>
               </li>
             <li>
-              <%= link_to "Subastas" %>
+              <%= link_to "Remates", remates_path %>
             </li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-              <li class="active">
+              <li>
                 <%= link_to "Entrar" %>
               </li>
               <li>
-                <%= link_to "Regístrate" %>
+                <%= link_to "Regístrate"%>
               </li>
             </ul>
         </div><!--/.nav-collapse -->
