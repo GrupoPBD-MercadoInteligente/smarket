@@ -45,7 +45,7 @@
   </div>
   <div class="field">
     <%= f.label :usuario_contrasena %><br>
-    <%= f.text_field :usuario_contrasena %>
+    <%= f.password_field :usuario_contrasena %>
   </div>
   <div class="field">
     <%= f.label :usuario_vip %><br>
@@ -53,11 +53,11 @@
   </div>
   <div class="field">
     <%= f.label :usuario_calle %><br>
-    <%= f.text_field :usuario_calle %>
+    <%= f.number_field :usuario_calle %>
   </div>
   <div class="field">
     <%= f.label :usuario_numero_calle %><br>
-    <%= f.number_field :usuario_numero_calle %>
+    <%= f.text_field :usuario_numero_calle %>
   </div>
   <div class="field">
     <%= f.label :usuario_villa %><br>
@@ -72,6 +72,6 @@
     <%= f.number_field :usuario_bloque %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit(:class  => "btn btn-primary") %>
   </div>
 <% end %>
